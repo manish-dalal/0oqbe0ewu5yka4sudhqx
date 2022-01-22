@@ -8,7 +8,7 @@ function App() {
   //   ? { basename: process.env.REACT_APP_PUBLIC_URL }
   //   : {};
   return (
-    <BrowserRouter {...routerProps}>
+    <BrowserRouter>
       <div className='App'>
         <header className='App-header'>
           <div />
