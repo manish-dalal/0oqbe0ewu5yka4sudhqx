@@ -4,9 +4,6 @@ import Video from './component/Video';
 import Home from './component/Home';
 
 function App() {
-  // const routerProps = process.env.REACT_APP_PUBLIC_URL
-  //   ? { basename: process.env.REACT_APP_PUBLIC_URL }
-  //   : {};
   return (
     <BrowserRouter>
       <div className='App'>

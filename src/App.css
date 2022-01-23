@@ -1,22 +1,26 @@
-.App {
+.App,
+.mdisk,
+.dood {
   text-align: center;
-  background-color: #e5e5e5;
+  background-color: #434645;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: black;
+  width: 100%;
+  color: white;
 }
 
-/* .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-} */
+.mdisk {
+  color: black;
+  background-color: #e5e5e5;
+  width: 100%;
+}
+
+#dood-element {
+  border: none;
+}
+#mdisk-element {
+  border: none;
+}
