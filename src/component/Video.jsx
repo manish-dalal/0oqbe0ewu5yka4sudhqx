@@ -2,17 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import Dood from './Dood';
 import Mdisk from './Mdisk';
-import ReactGA from 'react-ga';
 
 export default function Video() {
   let { type, videoId = '' } = useParams();
   if (videoId) {
     document.title = type === 'd' ? 'Doodstream' : 'Mdisk';
-    ReactGA.event({
-      category: 'Page visit',
-      action: document.title,
-      label: videoId,
-    });
   }
   const height =
     window.innerHeight < 780 ? window.innerHeight : window.innerHeight - 10;
@@ -24,5 +18,5 @@ export default function Video() {
   if (type === 'd') {
     return <Dood videoId={videoId} {...props} />;
   }
-  return <Mdisk videoId={videoId} width={480} height={1000} />;
+  return <Mdisk videoId={videoId} width={epWidth} height={1000} />;
 }
