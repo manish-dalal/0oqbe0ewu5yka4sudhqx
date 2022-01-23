@@ -8,9 +8,10 @@ export default function Mdisk({ videoId, height, width }) {
         src={`https://mdisk.me/convertor/14x9/${videoId}`}
         height={height}
         width={width}
+        title='Mdisk'
         scrolling='no'
-        frameborder='0'
-        allowfullscreen='true'
+        frameBorder={0}
+        allowFullScreen={true}
       />
     </div>
   );

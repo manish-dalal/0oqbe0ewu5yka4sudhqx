@@ -8,9 +8,10 @@ export default function Dood({ videoId, height, width }) {
         src={`https://dood.so/d/${videoId}`}
         height={height}
         width={width}
+        title='Doodstream'
         scrolling='no'
-        frameborder='0'
-        allowfullscreen='true'
+        frameBorder={0}
+        allowFullScreen={true}
       />
     </div>
   );
