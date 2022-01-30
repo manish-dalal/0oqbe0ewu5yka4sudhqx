@@ -48,6 +48,14 @@ export default function Video() {
         <Mdisk videoId={videoId} width={epWidth} height={1000} />
       )}
       <div className='ad-header'>
+        <amp-ad
+          layout='fixed'
+          width='480'
+          height='180'
+          type='adsense'
+          data-ad-client='ca-pub-4392956658341040'
+          data-ad-slot='6430092690'
+        ></amp-ad>
         <iframe
           title='exo-iframe'
           src={`//a.exdynsrv.com/iframe.php?idzone=${

@@ -1,0 +1,68 @@
+.wrapper {
+  background: #f6f6f6;
+  font-size: 16px;
+  line-height: 24px;
+  min-height: 100vh;
+  width: 100%;
+  /* background-color: #fff; */
+  color: black;
+  text-align: left;
+}
+.wrapper a {
+  color: #5d88b3;
+}
+.wrapper a .icon {
+  line-height: 1.428571429;
+}
+.wrapper a:hover .icon {
+  text-decoration: none;
+}
+.wrapper button {
+  outline: none;
+}
+.wrapper h1,
+.wrapper h2,
+.wrapper h3,
+.wrapper h4,
+.wrapper h5,
+.wrapper h6 {
+  margin: 0 0 18px 0;
+  font-weight: 400;
+}
+.wrapper p {
+  margin: 0 0 20px 0;
+}
+.wrapper strong {
+  font-weight: 700;
+}
+.wrapper .page {
+  padding: 25px;
+}
+
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+.container-fluid {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+}

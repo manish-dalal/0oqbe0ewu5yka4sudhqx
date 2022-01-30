@@ -91,7 +91,7 @@
 }
 .link {
   color: #fff;
-  text-decoration: unset;
+  text-decoration: none;
 }
 .link:hover {
   cursor: pointer;
