@@ -1,6 +1,14 @@
 import React from 'react';
 
 export default function Home() {
+  React.useEffect(() => {
+    var jsElm1 = document.createElement('script');
+    jsElm1.crossorigin = 'anonymous';
+    jsElm1.async = true;
+    jsElm1.src =
+      'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4392956658341040';
+    document.head.appendChild(jsElm1);
+  }, []);
   return (
     <div className='home'>
       <div className='bg-image'></div>
