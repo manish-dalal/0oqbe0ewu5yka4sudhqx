@@ -7,7 +7,7 @@ export default function Mdisk({ videoId, height, width }) {
         id='mdisk-element'
         src={`https://mdisk.me/convertor/14x9/${videoId}`}
         height={height}
-        width={width}
+        width={Math.min(480, width)}
         title='Mdisk'
         scrolling='no'
         frameBorder={0}
