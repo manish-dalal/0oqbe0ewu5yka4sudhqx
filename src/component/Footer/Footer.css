@@ -28,7 +28,7 @@ footer {
   content: unset;
 }
 @media (max-width: 430px) {
-  .home footer {
+  footer {
     flex-wrap: wrap;
     padding: 6px 20px;
   }
