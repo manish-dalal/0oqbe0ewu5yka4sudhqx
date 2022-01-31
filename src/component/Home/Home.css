@@ -1,0 +1,71 @@
+.bg-image {
+  opacity: 0.6;
+  background-image: url('https://res.cloudinary.com/ddvaiwvwr/image/upload/v1642938887/fdisk.in/bg1_ctssoa.png');
+  /* background-position: center top; */
+  background-size: cover;
+  position: absolute;
+  z-index: 1;
+  height: 100vh;
+}
+.main-body {
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  /* background-image: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4),
+    rgba(0, 0, 0, 0.4),
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0)
+  ); */
+}
+.main-logo {
+  height: 340px;
+  width: 340px;
+}
+.home h3,
+.home h4,
+.home h5 {
+  margin: 0;
+  padding: 10px 20%;
+}
+.home h4 {
+  color: #ff7700;
+}
+.home h5 {
+  /* color: #b0b3b8; */
+  line-height: 1.5;
+}
+.home h3 {
+  color: white;
+  font-weight: bold;
+  line-height: 1.5;
+}
+@media (max-width: 430px) {
+  .home h3,
+  .home h4,
+  .home h5 {
+    margin: 0;
+    padding: 7px 7%;
+  }
+  .main-logo {
+    height: 220px;
+    width: 220px;
+  }
+  /* .home {
+    padding: 60px 10px;
+  } */
+  .home h4 {
+    font-size: 15.5px;
+  }
+  .home h3 {
+    font-size: 17.5px;
+  }
+}

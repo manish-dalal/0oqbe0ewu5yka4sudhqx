@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import './Home.css';
 
 export default function Home() {
   React.useEffect(() => {
@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <div className='home'>
       <div className='bg-image'></div>
-      <div className='main-body'>
+      <div className='main-body container'>
         <div>
           <img
             src='https://res.cloudinary.com/ddvaiwvwr/image/upload/v1642945652/fdisk.in/logo-header-min_ozocct.png'
@@ -27,20 +27,6 @@ export default function Home() {
             minutes
           </h5>
         </div>
-        <footer>
-          <Link className='link' to='/term-and-condition'>
-            Terms of Use
-          </Link>
-          <Link className='link' to='/privacy-policy'>
-            Privacy Policy
-          </Link>
-          <Link className='link' to='/disclaimer'>
-            Disclaimer
-          </Link>
-          <Link className='link' to='/contact'>
-            Contact
-          </Link>
-        </footer>
       </div>
     </div>
   );

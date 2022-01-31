@@ -17,7 +17,7 @@
   "scripts": {
     "predeploy": "npm run ghbuild",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
+    "start": "export HTTPS=true && react-scripts start",
     "ghbuild": "yarn env-cmd -f .env.staging react-scripts build && shx cp build/index.html build/404.html",
     "build": "react-scripts build",
     "test": "react-scripts test",
