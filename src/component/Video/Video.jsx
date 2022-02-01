@@ -43,6 +43,10 @@ export default function Video() {
     window.adsbyjuicy = window?.adsbyjuicy || [];
     window.adsbyjuicy.push({ adzone: 965364 });
     window.adsbyjuicy.push({ adzone: 965365 });
+    if (type !== 'd') {
+      window.adsbyjuicy.push({ adzone: 965366 });
+      window.adsbyjuicy.push({ adzone: 965610 });
+    }
     var jsElm1 = document.createElement('script');
     jsElm1.async = true;
     jsElm1.type = 'text/javascript';
@@ -91,6 +95,12 @@ export default function Video() {
           frameBorder='0'
         ></iframe> */}
       </div>
+      {type !== 'd' && (
+        <div className='ad-footer-1'>
+          <ins id='965366' data-width='300' data-height='112'></ins>
+          <ins id='965610' data-width='300' data-height='112'></ins>
+        </div>
+      )}
       <div className='ad-footer'>
         <ins
           className='adsbygoogle'
