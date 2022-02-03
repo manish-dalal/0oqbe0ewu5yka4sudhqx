@@ -62,7 +62,6 @@ function App() {
       }
       gtag('js', new Date());
       gtag('config', 'G-HCDP5N394E');
-      window.dataLayer.push({ event: 'Test_event' });
     }
   }, []);
   return (
