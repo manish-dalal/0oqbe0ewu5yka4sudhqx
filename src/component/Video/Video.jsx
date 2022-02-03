@@ -86,6 +86,7 @@ export default function Video() {
           className='ad-overlay'
           onClick={() => {
             window.open('https://t.me/premium_stocks', '_blank');
+            window.dataLayer.push({ event: 'click_header_ad' });
           }}
         />
       </div>
