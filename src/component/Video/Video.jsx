@@ -82,23 +82,17 @@ export default function Video() {
         <ins id='965364' data-width='300' data-height='100'></ins>
         {/* <script data-cfasync='false' type='text/javascript' src='//neon.today/native/script/70082/19696/'></script> */}
 
-        {/* <iframe
-          title='exo-iframe'
-          src={`//a.exdynsrv.com/iframe.php?idzone=${
-            width > 500 ? '4577190&size=728x90' : '4577184&size=300x100'
-          }`}
-          width={width > 500 ? '900' : '300'}
-          height={width > 500 ? '90' : '100'}
-          scrolling='no'
-          marginWidth='0'
-          marginHeight='0'
-          frameBorder='0'
-        ></iframe> */}
+        <div
+          className='ad-overlay'
+          onClick={() => {
+            window.open('https://t.me/premium_stocks', '_blank');
+          }}
+        />
       </div>
       {type !== 'd' && (
         <div className='ad-footer-1'>
-          <ins id='965366' data-width='300' data-height='112'></ins>
-          <ins id='965610' data-width='300' data-height='112'></ins>
+          <ins id='965366' data-width='728' data-height='90'></ins>
+          <ins id='965610' data-width='300' data-height='50'></ins>
         </div>
       )}
       <div className='ad-footer'>

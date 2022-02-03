@@ -34,9 +34,17 @@
   height: 250px;
   overflow: hidden;
 }
+.ad-overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 113px;
+  overflow: hidden;
+  z-index: 1000;
+}
 .ad-footer-1 {
   position: absolute;
-  bottom: 250px;
+  bottom: 0px;
   background-color: #3c8cf0;
   width: 100%;
   height: 200px;
