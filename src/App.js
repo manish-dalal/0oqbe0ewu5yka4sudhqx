@@ -48,22 +48,22 @@ const contactFormUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLSdXoWMu2gTDcvUHWd_Jnd8AAvhDg2F-hNBcnV4lgcWkZiKHvA/viewform?embedded=true';
 
 function App() {
-  React.useEffect(() => {
-    if (!window.location.host.includes('localhost')) {
-      // <!-- Global site tag (gtag.js) - Google Analytics -->
-      var jsElm1 = document.createElement('script');
-      jsElm1.async = true;
-      jsElm1.src = 'https://www.googletagmanager.com/gtag/js?id=G-HCDP5N394E';
-      document.head.appendChild(jsElm1);
+  // React.useEffect(() => {
+  //   if (!window.location.host.includes('localhost')) {
+  //     // <!-- Global site tag (gtag.js) - Google Analytics -->
+  //     var jsElm1 = document.createElement('script');
+  //     jsElm1.async = true;
+  //     jsElm1.src = 'https://www.googletagmanager.com/gtag/js?id=G-HCDP5N394E';
+  //     document.head.appendChild(jsElm1);
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', 'G-HCDP5N394E');
-    }
-  }, []);
+  //     window.dataLayer = window.dataLayer || [];
+  //     function gtag() {
+  //       window.dataLayer.push(arguments);
+  //     }
+  //     gtag('js', new Date());
+  //     gtag('config', 'G-HCDP5N394E');
+  //   }
+  // }, []);
   return (
     <BrowserRouter>
       <div className='App'>
