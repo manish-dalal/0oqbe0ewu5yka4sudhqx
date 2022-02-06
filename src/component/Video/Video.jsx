@@ -27,7 +27,6 @@ export default function Video() {
   React.useEffect(() => {
     // const adsbygoogle = window.adsbygoogle || [];
     // adsbygoogle.push({});
-
     // if (query.get('name') === 'adsterra') {
     //   var jsElm = document.createElement('script');
     //   jsElm.type = 'text/javascript';
@@ -41,21 +40,17 @@ export default function Video() {
     // jsElm1['data-cfasync'] = false;
     // jsElm1.src = '//neon.today/native/script/70082/19696';
     // document.head.appendChild(jsElm1);
-
-    window.adsbyjuicy = window?.adsbyjuicy || [];
-    window.adsbyjuicy.push({ adzone: 965364 });
-    window.adsbyjuicy.push({ adzone: 965365 });
-
-    window.adsbyjuicy.push({ adzone: 965366 });
-    window.adsbyjuicy.push({ adzone: 965610 });
-
-    var jsElm1 = document.createElement('script');
-    jsElm1.async = true;
-    jsElm1.type = 'text/javascript';
-    jsElm1['data-cfasync'] = false;
-    jsElm1.src = 'https://poweredby.jads.co/js/jads.js';
-    document.head.appendChild(jsElm1);
-
+    // window.adsbyjuicy = window?.adsbyjuicy || [];
+    // window.adsbyjuicy.push({ adzone: 965364 });
+    // window.adsbyjuicy.push({ adzone: 965365 });
+    // window.adsbyjuicy.push({ adzone: 965366 });
+    // window.adsbyjuicy.push({ adzone: 965610 });
+    // var jsElm1 = document.createElement('script');
+    // jsElm1.async = true;
+    // jsElm1.type = 'text/javascript';
+    // jsElm1['data-cfasync'] = false;
+    // jsElm1.src = 'https://poweredby.jads.co/js/jads.js';
+    // document.head.appendChild(jsElm1);
     // window.adsbygoogle = window?.adsbygoogle || [];
     // window.adsbygoogle.push({});
     // var jsElm1 = document.createElement('script');
@@ -65,7 +60,6 @@ export default function Video() {
     // jsElm1.src =
     //   'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4392956658341040';
     // document.head.appendChild(jsElm1);
-
     // var jsElm1 = document.createElement('script');
     // jsElm1.type = 'application/javascript';
     // jsElm1.src = '//a.realsrv.com/ad-provider.js';
@@ -81,7 +75,7 @@ export default function Video() {
         <Mdisk videoId={videoId} width={epWidth} height={1000} />
       )}
       <div className='ad-header' style={frameWidthStyle}>
-        <ins id='965364' data-width='300' data-height='100'></ins>
+        {/* <ins id='965364' data-width='300' data-height='100'></ins> */}
         {/* <script data-cfasync='false' type='text/javascript' src='//neon.today/native/script/70082/19696/'></script> */}
 
         <div
@@ -92,14 +86,14 @@ export default function Video() {
           }}
         />
       </div>
-      {type !== 'd' && (
+      {/* {type !== 'd' && (
         <div className='ad-footer-1' style={frameWidthStyle}>
           <ins id='965366' data-width='728' data-height='90'></ins>
           <ins id='965610' data-width='300' data-height='50'></ins>
         </div>
-      )}
-      <div className='ad-footer'>
-        {/* <ins
+      )} */}
+      {/* <div className='ad-footer'>
+        <ins
           className='adsbygoogle'
           style={{
             display: 'inline-block',
@@ -109,9 +103,9 @@ export default function Video() {
           }}
           data-ad-client='ca-pub-4392956658341040'
           data-ad-slot='6430092690'
-        ></ins> */}
+        ></ins>
         <ins id='965365' data-width='300' data-height='250'></ins>
-        {/* <iframe
+        <iframe
           title='exo-iframe'
           src={`//a.exdynsrv.com/iframe.php?idzone=${
             width > 500 ? '4577194&size=900x250' : '4577102&size=300x250'
@@ -122,8 +116,8 @@ export default function Video() {
           marginWidth='0'
           marginHeight='0'
           frameBorder='0'
-        ></iframe> */}
-      </div>
+        ></iframe>
+      </div> */}
     </div>
   );
 }
