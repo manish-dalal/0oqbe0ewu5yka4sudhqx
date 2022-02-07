@@ -47,6 +47,7 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-image: url('https://res.cloudinary.com/ddvaiwvwr/image/upload/v1643984128/fdisk.in/header_jkdzin.png');
+  cursor: pointer;
 }
 .ad-footer-1 {
   position: absolute;
