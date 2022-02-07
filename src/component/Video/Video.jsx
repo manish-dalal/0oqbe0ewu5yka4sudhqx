@@ -25,6 +25,7 @@ export default function Video() {
   const frameWidthStyle = type === 'm' ? { width: Math.min(480, width) } : {};
 
   React.useEffect(() => {
+    window.dataLayer.push({ event: 'video_open', id: videoId || '' });
     // const adsbygoogle = window.adsbygoogle || [];
     // adsbygoogle.push({});
     // if (query.get('name') === 'adsterra') {
