@@ -5,7 +5,7 @@ export default function Dood({ videoId, height, width }) {
     <div className='dood'>
       <iframe
         id='dood-element'
-        src={`https://dood.so/e/${videoId}`}
+        src={`https://dood.so/d/${videoId}`}
         height={Math.min(height, width)}
         width={width}
         title='Doodstream'
