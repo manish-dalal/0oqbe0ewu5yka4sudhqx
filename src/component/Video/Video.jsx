@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import Dood from './Dood';
 import Mdisk from './Mdisk';
 import './video.css';
+import Report from '../Report';
 
 // function useQuery() {
 //   const { search } = useLocation();
@@ -25,7 +26,6 @@ export default function Video() {
   const frameWidthStyle = type === 'm' ? { width: Math.min(480, width) } : {};
 
   React.useEffect(() => {
-    window.dataLayer.push({ event: 'video_open', id: videoId || '' });
     // const adsbygoogle = window.adsbygoogle || [];
     // adsbygoogle.push({});
     // if (query.get('name') === 'adsterra') {
@@ -69,7 +69,7 @@ export default function Video() {
   }, []);
 
   return (
-    <div className='video-app'>
+    <div className={`video-app ${type === 'm' ? 'mdisk-app' : ''}`}>
       {type === 'd' ? (
         <Dood videoId={videoId} {...props} />
       ) : (
@@ -83,10 +83,11 @@ export default function Video() {
           className='ad-overlay'
           onClick={() => {
             window.open('https://t.me/premium_stocks', '_blank');
-            window.dataLayer.push({ event: 'click_header_ad' });
+            window.dataLayer.push({ event: 'click_header', id: videoId || '' });
           }}
         />
       </div>
+      {type === 'm' && <Report />}
       {/* {type !== 'd' && (
         <div className='ad-footer-1' style={frameWidthStyle}>
           <ins id='965366' data-width='728' data-height='90'></ins>
