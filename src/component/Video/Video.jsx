@@ -4,6 +4,7 @@ import Dood from './Dood';
 import Mdisk from './Mdisk';
 import './video.css';
 import Report from '../Report';
+import MdiskInfo from '../MdiskInfo';
 
 // function useQuery() {
 //   const { search } = useLocation();
@@ -68,6 +69,15 @@ export default function Video() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  //  top: calc(100vw * 0.6428571428571429 + 243px);
+  const topHeight = Math.min(window.innerWidth, 480) * 0.6428571428571429 + 243;
+  const footerStyle =
+    type === 'm'
+      ? {
+          top: topHeight,
+          height: 1000 - topHeight,
+        }
+      : {};
   return (
     <div className={`video-app ${type === 'm' ? 'mdisk-app' : ''}`}>
       {type === 'd' ? (
@@ -94,8 +104,9 @@ export default function Video() {
           <ins id='965610' data-width='300' data-height='50'></ins>
         </div>
       )} */}
-      {/* <div className='ad-footer'>
-        <ins
+      <div className='ad-footer' style={footerStyle}>
+        {type === 'm' && <MdiskInfo videoId={videoId} />}
+        {/* <ins
           className='adsbygoogle'
           style={{
             display: 'inline-block',
@@ -107,19 +118,8 @@ export default function Video() {
           data-ad-slot='6430092690'
         ></ins>
         <ins id='965365' data-width='300' data-height='250'></ins>
-        <iframe
-          title='exo-iframe'
-          src={`//a.exdynsrv.com/iframe.php?idzone=${
-            width > 500 ? '4577194&size=900x250' : '4577102&size=300x250'
-          }`}
-          width={width > 500 ? '900' : '300'}
-          height='250'
-          scrolling='no'
-          marginWidth='0'
-          marginHeight='0'
-          frameBorder='0'
-        ></iframe>
-      </div> */}
+       */}
+      </div>
     </div>
   );
 }

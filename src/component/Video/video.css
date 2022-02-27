@@ -36,11 +36,15 @@
 .ad-footer {
   position: absolute;
   bottom: 0;
-  background-color: #3c8cf0;
+  background-color: #fff;
   width: 100%;
   height: 250px;
   overflow: hidden;
 }
+/* .ad-footer-mdisk {
+  top: calc(100vw * 0.6428571428571429 + 243px);
+  height: calc(1000px - 100vw * 0.6428571428571429 + 243px);
+} */
 .ad-overlay {
   position: absolute;
   top: 0;
