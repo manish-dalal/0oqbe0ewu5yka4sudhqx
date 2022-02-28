@@ -15,6 +15,11 @@ const videoSize = (sizeArg) => {
   return size;
 };
 
+function shuffle(array) {
+  array.sort(() => Math.random() - 0.5);
+  return array;
+}
+
 export default function MdiskInfo({ videoId }) {
   const [videoData, setvideoData] = useState({
     display_name: '',
@@ -73,12 +78,16 @@ export default function MdiskInfo({ videoId }) {
           {!!fileSize && <span class='info-size'>{videoSize(fileSize)}</span>}
         </div>
       </div>
-      <ins class='adsbyexoclick' data-zoneid='4577102'></ins>
-      <ins class='adsbyexoclick' data-zoneid='4577184'></ins>
-      <ins class='adsbyexoclick' data-zoneid='4577190'></ins>
-      <ins class='adsbyexoclick' data-zoneid='4577194'></ins>
-      <ins class='adsbyexoclick' data-zoneid='4615354'></ins>
-      <ins class='adsbyexoclick' data-zoneid='4615360'></ins>
+      {shuffle([
+        '4577102',
+        '4577184',
+        '4577190',
+        '4577194',
+        '4615354',
+        '4615360',
+      ]).map((el) => (
+        <ins class='adsbyexoclick' data-zoneid={el}></ins>
+      ))}
     </div>
   );
 }
