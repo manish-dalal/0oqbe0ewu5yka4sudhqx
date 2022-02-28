@@ -75,7 +75,8 @@ export default function Video() {
     type === 'm'
       ? {
           top: topHeight,
-          height: 1000 - topHeight,
+          minHeight: '100%',
+          // height: 1000 - topHeight,
         }
       : {};
   return (

@@ -17,8 +17,8 @@ const videoSize = (sizeArg) => {
 
 export default function MdiskInfo({ videoId }) {
   const [videoData, setvideoData] = useState({
-    display_name: 'Ano91',
-    ts: moment(),
+    display_name: '',
+    ts: '',
   });
   useEffect(() => {
     window.AdProvider = window?.AdProvider || [];
@@ -39,7 +39,7 @@ export default function MdiskInfo({ videoId }) {
     fetch(url.href)
       .then((response) => response.json())
       .then(({ data }) => {
-        const newData = { ...data, ts: moment() };
+        const newData = { ...data };
         setvideoData(newData);
       });
   }, [videoId]);
@@ -62,18 +62,22 @@ export default function MdiskInfo({ videoId }) {
               2
             )}***${display_name.substr(-2, 2)} · `}</span>
           )}
-          <span class='info-time'>{` ${ts.format('D MMM YYYY')} · `}</span>
-          {(width || height) && (
+          {ts && (
+            <span class='info-time'>{` ${moment().format(
+              'D MMM YYYY'
+            )} · `}</span>
+          )}
+          {!!(width || height) && (
             <span class='info-resolution'>{`${width}*${height} · `}</span>
           )}
-          {fileSize && <span class='info-size'>{videoSize(fileSize)}</span>}
+          {!!fileSize && <span class='info-size'>{videoSize(fileSize)}</span>}
         </div>
       </div>
+      <ins class='adsbyexoclick' data-zoneid='4577102'></ins>
+      <ins class='adsbyexoclick' data-zoneid='4577184'></ins>
       <ins class='adsbyexoclick' data-zoneid='4577190'></ins>
       <ins class='adsbyexoclick' data-zoneid='4577194'></ins>
       <ins class='adsbyexoclick' data-zoneid='4615354'></ins>
-      <ins class='adsbyexoclick' data-zoneid='4577184'></ins>
-      <ins class='adsbyexoclick' data-zoneid='4577102'></ins>
       <ins class='adsbyexoclick' data-zoneid='4615360'></ins>
     </div>
   );
