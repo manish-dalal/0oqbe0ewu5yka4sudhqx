@@ -75,16 +75,20 @@ export default function Video() {
     type === 'm'
       ? {
           top: topHeight,
-          minHeight: '100%',
+          // minHeight: '100%',
           // height: 1000 - topHeight,
         }
-      : {};
+      : {
+          top: height + 122,
+          backgroundColor: '#434645',
+        };
   return (
     <div className={`video-app ${type === 'm' ? 'mdisk-app' : ''}`}>
       {type === 'd' ? (
         <Dood videoId={videoId} {...props} />
       ) : (
-        <Mdisk videoId={videoId} width={epWidth} height={1000} />
+        // for showing ads height increased by 1000
+        <Mdisk videoId={videoId} width={epWidth} height={2000} />
       )}
       <div className='ad-header' style={frameWidthStyle}>
         {/* <ins id='965364' data-width='300' data-height='100'></ins> */}
@@ -106,7 +110,7 @@ export default function Video() {
         </div>
       )} */}
       <div className='ad-footer' style={footerStyle}>
-        {type === 'm' && <MdiskInfo videoId={videoId} />}
+        <MdiskInfo videoId={videoId} type={type} />
         {/* <ins
           className='adsbygoogle'
           style={{

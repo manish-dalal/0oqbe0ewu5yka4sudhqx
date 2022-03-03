@@ -17,3 +17,9 @@
   display: flex;
   flex-direction: column;
 }
+
+.MdiskInfo-ads {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

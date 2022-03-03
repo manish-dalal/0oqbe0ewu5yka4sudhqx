@@ -20,9 +20,9 @@ function shuffle(array) {
   return array;
 }
 
-export default function MdiskInfo({ videoId }) {
+export default function MdiskInfo({ videoId, type }) {
   const [videoData, setvideoData] = useState({
-    display_name: '',
+    display_name: 'An***91',
     ts: '',
   });
   useEffect(() => {
@@ -36,18 +36,20 @@ export default function MdiskInfo({ videoId }) {
   }, []);
 
   useEffect(() => {
-    let params = {
-      url: `https://diskuploader.entertainvideo.com/v1/file/cdnurl?param=${videoId}`,
-    };
-    const url = new URL(`https://diskuploader.glitch.me/api/msc/get`);
-    url.search = new URLSearchParams(params);
-    fetch(url.href)
-      .then((response) => response.json())
-      .then(({ data }) => {
-        const newData = { ...data };
-        setvideoData(newData);
-      });
-  }, [videoId]);
+    if (type === 'm') {
+      let params = {
+        url: `https://diskuploader.entertainvideo.com/v1/file/cdnurl?param=${videoId}`,
+      };
+      const url = new URL(`https://diskuploader.glitch.me/api/msc/get`);
+      url.search = new URLSearchParams(params);
+      fetch(url.href)
+        .then((response) => response.json())
+        .then(({ data }) => {
+          const newData = { ...data };
+          setvideoData(newData);
+        });
+    }
+  }, [videoId, type]);
 
   const {
     display_name = '',
@@ -58,36 +60,40 @@ export default function MdiskInfo({ videoId }) {
   } = videoData;
   return (
     <div className='MdiskInfo'>
-      <div class='disk-details'>
-        <div class='t-12'>
-          <div class='info-title'>Video Information</div>
-          {display_name && (
-            <span class='info-user'>{`${display_name.substr(
-              0,
-              2
-            )}***${display_name.substr(-2, 2)} · `}</span>
-          )}
-          {ts && (
-            <span class='info-time'>{` ${moment().format(
-              'D MMM YYYY'
-            )} · `}</span>
-          )}
-          {!!(width || height) && (
-            <span class='info-resolution'>{`${width}*${height} · `}</span>
-          )}
-          {!!fileSize && <span class='info-size'>{videoSize(fileSize)}</span>}
+      {type === 'm' && (
+        <div class='disk-details'>
+          <div class='t-12'>
+            <div class='info-title'>Video Information</div>
+            {display_name && (
+              <span class='info-user'>{`${display_name.substr(
+                0,
+                2
+              )}***${display_name.substr(-2, 2)} · `}</span>
+            )}
+            {ts && (
+              <span class='info-time'>{` ${moment().format(
+                'D MMM YYYY'
+              )} · `}</span>
+            )}
+            {!!(width || height) && (
+              <span class='info-resolution'>{`${width}*${height} · `}</span>
+            )}
+            {!!fileSize && <span class='info-size'>{videoSize(fileSize)}</span>}
+          </div>
         </div>
+      )}
+      <div className='MdiskInfo-ads'>
+        {shuffle([
+          '4577102',
+          '4577184',
+          '4577190',
+          '4577194',
+          '4615354',
+          '4615360',
+        ]).map((el) => (
+          <ins class='adsbyexoclick' data-zoneid={el}></ins>
+        ))}
       </div>
-      {shuffle([
-        '4577102',
-        '4577184',
-        '4577190',
-        '4577194',
-        '4615354',
-        '4615360',
-      ]).map((el) => (
-        <ins class='adsbyexoclick' data-zoneid={el}></ins>
-      ))}
     </div>
   );
 }
