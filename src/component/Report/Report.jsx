@@ -19,44 +19,50 @@ export default function Report() {
   return (
     <>
       <div
-        class='report'
+        className='report'
         onClick={() => {
           setshow(true);
         }}
       >
-        <div class='warning'></div>
-        <div class='label-report'>Report</div>
+        <div className='warning'></div>
+        <div className='label-report'>Report</div>
       </div>
       {show && (
-        <div class='mxevt-report-modal' onClick={onClose}>
-          <div class='main-body'>
-            <div class='title'>
+        <div className='mxevt-report-modal' onClick={onClose}>
+          <div className='main-body'>
+            <div className='title'>
               Report video
-              <div class='close' onClick={onClose}></div>
+              <div className='close' onClick={onClose}></div>
             </div>
-            <div class='listItem' onClick={onClose.bind(this, 'spam')}>
-              <div class='radio'></div>
-              <span class='type'>Spam</span>
+            <div className='listItem' onClick={onClose.bind(this, 'spam')}>
+              <div className='radio'></div>
+              <span className='type'>Spam</span>
             </div>
-            <div class='listItem' onClick={onClose.bind(this, 'violence')}>
-              <div class='radio'></div>
-              <span class='type'>Violence</span>
+            <div className='listItem' onClick={onClose.bind(this, 'violence')}>
+              <div className='radio'></div>
+              <span className='type'>Violence</span>
             </div>
-            <div class='listItem' onClick={onClose.bind(this, 'pornography')}>
-              <div class='radio'></div>
-              <span class='type'>Pornography</span>
+            <div
+              className='listItem'
+              onClick={onClose.bind(this, 'pornography')}
+            >
+              <div className='radio'></div>
+              <span className='type'>Pornography</span>
             </div>
-            <div class='listItem' onClick={onClose.bind(this, 'child abuse')}>
-              <div class='radio'></div>
-              <span class='type'>Child Abuse</span>
+            <div
+              className='listItem'
+              onClick={onClose.bind(this, 'child abuse')}
+            >
+              <div className='radio'></div>
+              <span className='type'>Child Abuse</span>
             </div>
-            <div class='listItem' onClick={onClose.bind(this, 'Copyright')}>
-              <div class='radio'></div>
-              <span class='type'>Copyright</span>
+            <div className='listItem' onClick={onClose.bind(this, 'Copyright')}>
+              <div className='radio'></div>
+              <span className='type'>Copyright</span>
             </div>
-            <div class='listItem' onClick={onClose.bind(this, 'other')}>
-              <div class='radio'></div>
-              <span class='type'>Other</span>
+            <div className='listItem' onClick={onClose.bind(this, 'other')}>
+              <div className='radio'></div>
+              <span className='type'>Other</span>
             </div>
           </div>
         </div>

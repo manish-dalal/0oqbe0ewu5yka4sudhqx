@@ -61,24 +61,26 @@ export default function MdiskInfo({ videoId, type }) {
   return (
     <div className='MdiskInfo'>
       {type === 'm' && (
-        <div class='disk-details'>
-          <div class='t-12'>
-            <div class='info-title'>Video Information</div>
+        <div className='disk-details'>
+          <div className='t-12'>
+            <div className='info-title'>Video Information</div>
             {display_name && (
-              <span class='info-user'>{`${display_name.substr(
+              <span className='info-user'>{`${display_name.substr(
                 0,
                 2
               )}***${display_name.substr(-2, 2)} · `}</span>
             )}
             {ts && (
-              <span class='info-time'>{` ${moment().format(
+              <span className='info-time'>{` ${moment().format(
                 'D MMM YYYY'
               )} · `}</span>
             )}
             {!!(width || height) && (
-              <span class='info-resolution'>{`${width}*${height} · `}</span>
+              <span className='info-resolution'>{`${width}*${height} · `}</span>
             )}
-            {!!fileSize && <span class='info-size'>{videoSize(fileSize)}</span>}
+            {!!fileSize && (
+              <span className='info-size'>{videoSize(fileSize)}</span>
+            )}
           </div>
         </div>
       )}
@@ -90,8 +92,12 @@ export default function MdiskInfo({ videoId, type }) {
           '4577194',
           '4615354',
           '4615360',
-        ]).map((el) => (
-          <ins class='adsbyexoclick' data-zoneid={el}></ins>
+        ]).map((el, index) => (
+          <ins
+            className='adsbyexoclick'
+            data-zoneid={el}
+            key={`ad-${index}`}
+          ></ins>
         ))}
       </div>
     </div>

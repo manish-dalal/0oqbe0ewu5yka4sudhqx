@@ -1,9 +1,10 @@
 import React from 'react';
+import Iframe from '../CustomIframe';
 
-export default function Mdisk({ videoId, height, width }) {
+export default function Mdisk({ videoId, height, width, onClick }) {
   return (
     <div className='mdisk'>
-      <iframe
+      <Iframe
         id='mdisk-element'
         src={`https://mdisk.me/convertor/14x9/${videoId}`}
         height={height}
@@ -12,6 +13,7 @@ export default function Mdisk({ videoId, height, width }) {
         scrolling='no'
         frameBorder={0}
         allowFullScreen={true}
+        onInferredClick={onClick}
       />
     </div>
   );

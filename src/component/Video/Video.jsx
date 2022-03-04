@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Dood from './Dood';
 import Mdisk from './Mdisk';
@@ -12,6 +12,7 @@ import MdiskInfo from '../MdiskInfo';
 // }
 export default function Video() {
   let { type = '', videoId = '' } = useParams();
+  const [isClickedIframe, setisClickedIframe] = useState(false);
   // let query = useQuery();
   if (videoId) {
     document.title = type === 'd' ? 'Doodstream' : 'Mdisk';
@@ -70,7 +71,10 @@ export default function Video() {
   }, []);
 
   //  top: calc(100vw * 0.6428571428571429 + 243px);
-  const topHeight = Math.min(window.innerWidth, 480) * 0.6428571428571429 + 243;
+  const topHeight =
+    Math.min(window.innerWidth, 480) * 0.6428571428571429 +
+    243 +
+    (isClickedIframe ? 35 : 0);
   // Math.min(window.innerWidth, 480) * 0.6428571428571429 + 243 + 14;
   const footerStyle =
     type === 'm'
@@ -86,10 +90,23 @@ export default function Video() {
   return (
     <div className={`video-app ${type === 'm' ? 'mdisk-app' : ''}`}>
       {type === 'd' ? (
-        <Dood videoId={videoId} {...props} />
+        <Dood
+          videoId={videoId}
+          {...props}
+          onClick={() => {
+            setisClickedIframe(true);
+          }}
+        />
       ) : (
         // for showing ads height increased by 1000
-        <Mdisk videoId={videoId} width={epWidth} height={2000} />
+        <Mdisk
+          videoId={videoId}
+          width={epWidth}
+          height={2000}
+          onClick={() => {
+            setisClickedIframe(true);
+          }}
+        />
       )}
       <div className='ad-header' style={frameWidthStyle}>
         {/* <ins id='965364' data-width='300' data-height='100'></ins> */}
