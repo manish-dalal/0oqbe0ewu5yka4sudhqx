@@ -70,8 +70,8 @@ export default function Video() {
   }, []);
 
   //  top: calc(100vw * 0.6428571428571429 + 243px);
-  const topHeight =
-    Math.min(window.innerWidth, 480) * 0.6428571428571429 + 243 + 14;
+  const topHeight = Math.min(window.innerWidth, 480) * 0.6428571428571429 + 243;
+  // Math.min(window.innerWidth, 480) * 0.6428571428571429 + 243 + 14;
   const footerStyle =
     type === 'm'
       ? {
