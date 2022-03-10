@@ -8,7 +8,8 @@ export default function Header() {
       <div className='container'>
         <Link to='/'>
           <img
-            src='https://res.cloudinary.com/ddvaiwvwr/image/upload/v1642945652/fdisk.in/logo-header-min_ozocct.png'
+            // https://logomakr.com/
+            src='https://res.cloudinary.com/ddvaiwvwr/image/upload/v1646917872/fdisk.in/play_ygqo5c.png'
             alt='logo'
             className='header-logo'
           />

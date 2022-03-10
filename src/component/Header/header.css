@@ -2,7 +2,8 @@
   width: 100%;
 }
 .header-logo {
-  height: 60px;
+  margin-top: 5px;
+  height: 50px;
 }
 .app-header .container {
   height: 70px;

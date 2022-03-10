@@ -1,4 +1,5 @@
 import './live.min.css';
+import { config } from '../../config';
 
 const Terms = () => {
   return (
@@ -10,10 +11,10 @@ const Terms = () => {
               <h2>Website Terms of Use</h2>
               <p>Version 1.0</p>
               <p>
-                The fdisk website located at https://fdisk.in/ is a copyrighted
-                work belonging to fdisk. Certain features of the Site may be
+                {`The ${config.hostname} website located at ${config.origin} is a copyrighted
+                work belonging to ${config.hostname}. Certain features of the Site may be
                 subject to additional guidelines, terms, or rules, which will be
-                posted on the Site in connection with such features.
+                posted on the Site in connection with such features.`}
               </p>
               <p>
                 All such additional terms, guidelines, and rules are
@@ -129,12 +130,12 @@ const Terms = () => {
               </p>
               <p>
                 <strong>Cookies and Web Beacons.</strong> Like any other
-                website, fdisk uses ‘cookies’. These cookies are used to store
+                {`website, ${config.hostname} uses ‘cookies’. These cookies are used to store
                 information including visitors’ preferences, and the pages on
                 the website that the visitor accessed or visited. The
                 information is used to optimize the users’ experience by
                 customizing our web page content based on visitors’ browser type
-                and/or other information.
+                and/or other information.`}
               </p>
               <p>
                 <strong>Google DoubleClick DART Cookie.</strong> Google is one
@@ -325,10 +326,10 @@ const Terms = () => {
                 <strong>
                   Notice Requirement and Informal Dispute Resolution.
                 </strong>{' '}
-                Before either party may seek arbitration, the party must first
+                {`Before either party may seek arbitration, the party must first
                 send to the other party a written Notice of Dispute describing
                 the nature and basis of the claim or dispute, and the requested
-                relief.&nbsp; A Notice to the Company should be sent to: Fdisk.
+                relief.&nbsp; A Notice to the Company should be sent to: ${config.hostname}.
                 After the Notice is received, you and the Company may attempt to
                 resolve the claim or dispute informally.&nbsp; If you and the
                 Company do not resolve the claim or dispute within thirty (30)
@@ -336,7 +337,7 @@ const Terms = () => {
                 arbitration proceeding.&nbsp; The amount of any settlement offer
                 made by any party may not be disclosed to the arbitrator until
                 after the arbitrator has determined the amount of the award to
-                which either party is entitled.
+                which either party is entitled.`}
               </p>
               <p>
                 <strong>Arbitration Rules.</strong> Arbitration shall be
@@ -555,11 +556,11 @@ const Terms = () => {
                 <li>
                   By visiting this page on our website:{' '}
                   <a
-                    href='https://fdisk.in/contact'
+                    href={`${config.origin}/contact`}
                     rel='noreferrer'
                     target='_blank'
                   >
-                    https://fdisk.in/contact
+                    {`${config.origin}/contact`}
                   </a>
                 </li>
               </ul>

@@ -28,8 +28,9 @@
   ); */
 }
 .main-logo {
-  height: 340px;
-  width: 340px;
+  height: 240px;
+  width: 240px;
+  margin-bottom: 20px;
 }
 .home h3,
 .home h4,

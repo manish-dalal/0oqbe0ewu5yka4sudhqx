@@ -1,4 +1,5 @@
 import './live.min.css';
+import { config } from '../../config';
 
 const Disclaimer = () => {
   return (
@@ -7,15 +8,15 @@ const Disclaimer = () => {
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
-              <h1>Disclaimers for fdisk</h1>
+              <h1>{`Disclaimers for ${config.hostname}`}</h1>
               <p>
-                All the information on this website - https://fdisk.in/ - is
+                {`All the information on this website -  ${config.origin} - is
                 published in good faith and for general information purpose
-                only. fdisk does not make any warranties about the completeness,
+                only. ${config.hostname} does not make any warranties about the completeness,
                 reliability and accuracy of this information. Any action you
-                take upon the information you find on this website (fdisk), is
-                strictly at your own risk. fdisk will not be liable for any
-                losses and/or damages in connection with the use of our website.
+                take upon the information you find on this website (${config.hostname}), is
+                strictly at your own risk. ${config.hostname} will not be liable for any
+                losses and/or damages in connection with the use of our website.`}
               </p>
               <p>
                 From our website, you can visit other websites by following
@@ -53,11 +54,11 @@ const Disclaimer = () => {
                 <li>
                   By visiting this page on our website:{' '}
                   <a
-                    href='https://fdisk.in/contact'
+                    href={`${config.origin}/contact`}
                     rel='noreferrer'
                     target='_blank'
                   >
-                    https://fdisk.in/contact
+                    {`${config.origin}/contact`}
                   </a>
                 </li>
               </ul>
