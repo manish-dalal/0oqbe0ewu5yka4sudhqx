@@ -104,16 +104,13 @@ export default function Video() {
         <Mdisk
           videoId={videoId}
           width={epWidth}
-          height={2000}
+          height={2310}
           onClick={() => {
             setisClickedIframe(true);
           }}
         />
       )}
       <div className='ad-header' style={frameWidthStyle}>
-        {/* <ins id='965364' data-width='300' data-height='100'></ins> */}
-        {/* <script data-cfasync='false' type='text/javascript' src='//neon.today/native/script/70082/19696/'></script> */}
-
         <div
           className='ad-overlay'
           onClick={() => {
@@ -123,27 +120,8 @@ export default function Video() {
         />
       </div>
       {type === 'm' && <Report />}
-      {/* {type !== 'd' && (
-        <div className='ad-footer-1' style={frameWidthStyle}>
-          <ins id='965366' data-width='728' data-height='90'></ins>
-          <ins id='965610' data-width='300' data-height='50'></ins>
-        </div>
-      )} */}
       <div className='ad-footer' style={footerStyle}>
         <MdiskInfo videoId={videoId} type={type} />
-        {/* <ins
-          className='adsbygoogle'
-          style={{
-            display: 'inline-block',
-            width: 480,
-            height: 180,
-            position: 'absolute',
-          }}
-          data-ad-client='ca-pub-4392956658341040'
-          data-ad-slot='6430092690'
-        ></ins>
-        <ins id='965365' data-width='300' data-height='250'></ins>
-       */}
       </div>
     </div>
   );
