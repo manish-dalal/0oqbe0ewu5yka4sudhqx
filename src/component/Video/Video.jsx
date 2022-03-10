@@ -5,13 +5,15 @@ import Mdisk from './Mdisk';
 import './video.css';
 import Report from '../Report';
 import MdiskInfo from '../MdiskInfo';
+import { config, iHostname } from '../../config';
 
 // function useQuery() {
 //   const { search } = useLocation();
 //   return React.useMemo(() => new URLSearchParams(search), [search]);
 // }
 export default function Video() {
-  let { type = '', videoId = '' } = useParams();
+  const typeDefaultValue = config.hostname === iHostname[0] ? 'd' : 'm';
+  let { type = typeDefaultValue, videoId = '' } = useParams();
   const [isClickedIframe, setisClickedIframe] = useState(false);
   // let query = useQuery();
   if (videoId) {

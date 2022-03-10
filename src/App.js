@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
-import { config } from './config';
+import { config, iHostname } from './config';
 
 const COMPONENT_DELAY = 0;
 
@@ -52,15 +52,15 @@ function App() {
   React.useEffect(() => {
     let activeId = '';
     switch (config.hostname) {
-      case 'dood.co.in':
+      case iHostname[0]:
         // UA-217866237-3
         activeId = 'G-W5SGDRRSJQ';
         break;
-      case 'mdisk.co.in':
+      case iHostname[1]:
         // UA-217866237-2
         activeId = 'G-4T6KQT2X56';
         break;
-      case 'fdisk.in':
+      case iHostname[2]:
         // UA-217866237-1
         activeId = 'G-HCDP5N394E';
         break;
@@ -96,7 +96,15 @@ function App() {
               </React.Suspense>
             )}
           />
-
+          <Route
+            exact
+            path='/:videoId'
+            render={(pr) => (
+              <React.Suspense fallback={<div>Loading...</div>}>
+                <Video {...pr} />
+              </React.Suspense>
+            )}
+          />
           <Route
             exact
             path='/privacy-policy'

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './MdiskInfo.css';
 import moment from 'moment';
+import { config, iHostname } from '../../config';
 
 const videoSize = (sizeArg) => {
   let size = null;
@@ -58,6 +59,44 @@ export default function MdiskInfo({ videoId, type }) {
     height = 0,
     size: fileSize = 0,
   } = videoData;
+
+  let exoAdsArr = [
+    '4577102',
+    '4577184',
+    '4577190',
+    '4577194',
+    '4615354',
+    '4615360',
+    '4616324',
+  ];
+  switch (config.hostname) {
+    case iHostname[0]:
+      exoAdsArr = [
+        '4629292',
+        '4629294',
+        '4629296',
+        '4629298',
+        '4629300',
+        '4629302',
+        '4629382',
+      ];
+      break;
+    case iHostname[1]:
+      exoAdsArr = [
+        '4629384',
+        '4629386',
+        '4629388',
+        '4629390',
+        '4629392',
+        '4629394',
+        '4629398',
+      ];
+      break;
+    case iHostname[2]:
+      break;
+    default:
+      break;
+  }
   return (
     <div className='MdiskInfo'>
       {type === 'm' && (
@@ -85,14 +124,7 @@ export default function MdiskInfo({ videoId, type }) {
         </div>
       )}
       <div className='MdiskInfo-ads'>
-        {shuffle([
-          '4577102',
-          '4577184',
-          '4577190',
-          '4577194',
-          '4615354',
-          '4615360',
-        ]).map((el, index) => (
+        {shuffle(exoAdsArr).map((el, index) => (
           <ins
             className='adsbyexoclick'
             data-zoneid={el}
