@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import './App.css';
+import { config } from './config';
 
 const COMPONENT_DELAY = 0;
 
@@ -48,22 +49,40 @@ const contactFormUrl =
   'https://docs.google.com/forms/d/e/1FAIpQLSdXoWMu2gTDcvUHWd_Jnd8AAvhDg2F-hNBcnV4lgcWkZiKHvA/viewform?embedded=true';
 
 function App() {
-  // React.useEffect(() => {
-  //   if (!window.location.host.includes('localhost')) {
-  //     // <!-- Global site tag (gtag.js) - Google Analytics -->
-  //     var jsElm1 = document.createElement('script');
-  //     jsElm1.async = true;
-  //     jsElm1.src = 'https://www.googletagmanager.com/gtag/js?id=G-HCDP5N394E';
-  //     document.head.appendChild(jsElm1);
+  React.useEffect(() => {
+    let activeId = '';
+    switch (config.hostname) {
+      case 'dood.co.in':
+        // UA-217866237-3
+        activeId = 'G-W5SGDRRSJQ';
+        break;
+      case 'mdisk.co.in':
+        // UA-217866237-2
+        activeId = 'G-4T6KQT2X56';
+        break;
+      case 'fdisk.in':
+        // UA-217866237-1
+        activeId = 'G-HCDP5N394E';
+        break;
+      default:
+        break;
+    }
 
-  //     window.dataLayer = window.dataLayer || [];
-  //     function gtag() {
-  //       window.dataLayer.push(arguments);
-  //     }
-  //     gtag('js', new Date());
-  //     gtag('config', 'G-HCDP5N394E');
-  //   }
-  // }, []);
+    if (activeId) {
+      // <!-- Global site tag (gtag.js) - Google Analytics -->
+      var jsElm1 = document.createElement('script');
+      jsElm1.async = true;
+      jsElm1.src = `https://www.googletagmanager.com/gtag/js?id=${activeId}`;
+      document.head.appendChild(jsElm1);
+
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', activeId);
+    }
+  }, []);
   return (
     <BrowserRouter>
       <div className='App'>
