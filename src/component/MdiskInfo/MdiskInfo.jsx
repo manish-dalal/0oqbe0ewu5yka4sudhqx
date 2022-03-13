@@ -21,20 +21,22 @@ function shuffle(array) {
   return array;
 }
 
-export default function MdiskInfo({ videoId, type }) {
+export default function MdiskInfo({ videoId, type, isLoading }) {
   const [videoData, setvideoData] = useState({
     display_name: 'An***91',
     ts: '',
   });
   useEffect(() => {
-    window.AdProvider = window?.AdProvider || [];
-    window.AdProvider.push({ serve: {} });
-    var jsElm1 = document.createElement('script');
-    jsElm1.async = true;
-    jsElm1.type = 'application/javascript';
-    jsElm1.src = 'https://a.exdynsrv.com/ad-provider.js';
-    document.head.appendChild(jsElm1);
-  }, []);
+    if (!isLoading) {
+      window.AdProvider = window?.AdProvider || [];
+      window.AdProvider.push({ serve: {} });
+      var jsElm1 = document.createElement('script');
+      jsElm1.async = true;
+      jsElm1.type = 'application/javascript';
+      jsElm1.src = 'https://a.exdynsrv.com/ad-provider.js';
+      document.head.appendChild(jsElm1);
+    }
+  }, [isLoading]);
 
   useEffect(() => {
     if (type === 'm') {
@@ -123,15 +125,17 @@ export default function MdiskInfo({ videoId, type }) {
           </div>
         </div>
       )}
-      <div className='MdiskInfo-ads'>
-        {shuffle(exoAdsArr).map((el, index) => (
-          <ins
-            className='adsbyexoclick'
-            data-zoneid={el}
-            key={`ad-${index}`}
-          ></ins>
-        ))}
-      </div>
+      {!isLoading && (
+        <div className='MdiskInfo-ads'>
+          {shuffle(exoAdsArr).map((el, index) => (
+            <ins
+              className='adsbyexoclick'
+              data-zoneid={el}
+              key={`ad-${index}`}
+            ></ins>
+          ))}
+        </div>
+      )}
     </div>
   );
 }

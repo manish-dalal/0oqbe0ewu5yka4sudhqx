@@ -98,15 +98,6 @@ function App() {
           />
           <Route
             exact
-            path='/:videoId'
-            render={(pr) => (
-              <React.Suspense fallback={<div>Loading...</div>}>
-                <Video {...pr} />
-              </React.Suspense>
-            )}
-          />
-          <Route
-            exact
             path='/privacy-policy'
             render={(pr) => (
               <React.Suspense fallback={<div>Loading...</div>}>
@@ -143,6 +134,15 @@ function App() {
               <React.Suspense fallback={<div>Loading...</div>}>
                 <Header />
                 <IframeRender {...pr} static={contactFormUrl} />
+              </React.Suspense>
+            )}
+          />
+          <Route
+            exact
+            path='/:videoId'
+            render={(pr) => (
+              <React.Suspense fallback={<div>Loading...</div>}>
+                <Video {...pr} />
               </React.Suspense>
             )}
           />

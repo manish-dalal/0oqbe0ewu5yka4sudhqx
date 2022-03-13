@@ -15,6 +15,7 @@ export default function Video() {
   const typeDefaultValue = config.hostname === iHostname[0] ? 'd' : 'm';
   let { type = typeDefaultValue, videoId = '' } = useParams();
   const [isClickedIframe, setisClickedIframe] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   // let query = useQuery();
   if (videoId) {
     document.title = type === 'd' ? 'Doodstream' : 'Mdisk';
@@ -98,6 +99,7 @@ export default function Video() {
           onClick={() => {
             setisClickedIframe(true);
           }}
+          onLoad={() => setIsLoading(false)}
         />
       ) : (
         // for showing ads height increased by 1000
@@ -108,6 +110,7 @@ export default function Video() {
           onClick={() => {
             setisClickedIframe(true);
           }}
+          onLoad={() => setIsLoading(false)}
         />
       )}
       <div className='ad-header' style={frameWidthStyle}>
@@ -121,7 +124,7 @@ export default function Video() {
       </div>
       {type === 'm' && <Report />}
       <div className='ad-footer' style={footerStyle}>
-        <MdiskInfo videoId={videoId} type={type} />
+        <MdiskInfo videoId={videoId} type={type} isLoading={isLoading} />
       </div>
     </div>
   );

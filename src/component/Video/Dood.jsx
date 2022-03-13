@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Dood({ videoId, height, width }) {
+export default function Dood({ videoId, height, width, onLoad }) {
   return (
     <div className='dood'>
       <iframe
@@ -12,6 +12,7 @@ export default function Dood({ videoId, height, width }) {
         scrolling='no'
         frameBorder={0}
         allowFullScreen={true}
+        onLoad={onLoad}
       />
     </div>
   );

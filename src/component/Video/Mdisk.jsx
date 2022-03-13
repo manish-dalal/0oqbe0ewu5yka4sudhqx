@@ -1,7 +1,7 @@
 import React from 'react';
 import Iframe from '../CustomIframe';
 
-export default function Mdisk({ videoId, height, width, onClick }) {
+export default function Mdisk({ videoId, height, width, onClick, onLoad }) {
   return (
     <div className='mdisk'>
       <Iframe
@@ -14,6 +14,7 @@ export default function Mdisk({ videoId, height, width, onClick }) {
         frameBorder={0}
         allowFullScreen={true}
         onInferredClick={onClick}
+        onLoad={onLoad}
       />
     </div>
   );
