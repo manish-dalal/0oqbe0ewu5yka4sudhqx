@@ -51,20 +51,26 @@ const contactFormUrl =
 function App() {
   React.useEffect(() => {
     let activeId = '';
+    let activeTagManagerId = '';
     switch (config.hostname) {
       case iHostname[0]:
         // UA-217866237-3
         activeId = 'G-W5SGDRRSJQ';
+        activeTagManagerId = 'GTM-P9JHCQP';
         break;
       case iHostname[1]:
         // UA-217866237-2
         activeId = 'G-4T6KQT2X56';
+        activeTagManagerId = 'GTM-N7K54DR';
         break;
       case iHostname[2]:
         // UA-217866237-1
         activeId = 'G-HCDP5N394E';
+        activeTagManagerId = 'GTM-PVTZFTG';
         break;
       default:
+        activeId = 'G-HCDP5N394E';
+        activeTagManagerId = 'GTM-PVTZFTG';
         break;
     }
 
@@ -81,6 +87,21 @@ function App() {
       }
       gtag('js', new Date());
       gtag('config', activeId);
+    }
+    if (activeTagManagerId) {
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          'gtm.start': new Date().getTime(),
+          event: 'gtm.js',
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l !== 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', activeTagManagerId);
     }
   }, []);
   return (
