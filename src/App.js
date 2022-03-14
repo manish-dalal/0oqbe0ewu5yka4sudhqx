@@ -50,44 +50,44 @@ const contactFormUrl =
 
 function App() {
   React.useEffect(() => {
-    let activeId = '';
+    // let activeId = '';
     let activeTagManagerId = '';
     switch (config.hostname) {
       case iHostname[0]:
         // UA-217866237-3
-        activeId = 'G-W5SGDRRSJQ';
+        // activeId = 'G-W5SGDRRSJQ';
         activeTagManagerId = 'GTM-P9JHCQP';
         break;
       case iHostname[1]:
         // UA-217866237-2
-        activeId = 'G-4T6KQT2X56';
+        // activeId = 'G-4T6KQT2X56';
         activeTagManagerId = 'GTM-N7K54DR';
         break;
       case iHostname[2]:
         // UA-217866237-1
-        activeId = 'G-HCDP5N394E';
+        // activeId = 'G-HCDP5N394E';
         activeTagManagerId = 'GTM-PVTZFTG';
         break;
       default:
-        activeId = 'G-HCDP5N394E';
+        // activeId = 'G-HCDP5N394E';
         activeTagManagerId = 'GTM-PVTZFTG';
         break;
     }
 
-    if (activeId) {
-      // <!-- Global site tag (gtag.js) - Google Analytics -->
-      var jsElm1 = document.createElement('script');
-      jsElm1.async = true;
-      jsElm1.src = `https://www.googletagmanager.com/gtag/js?id=${activeId}`;
-      document.head.appendChild(jsElm1);
+    // if (activeId) {
+    //   // <!-- Global site tag (gtag.js) - Google Analytics -->
+    //   var jsElm1 = document.createElement('script');
+    //   jsElm1.async = true;
+    //   jsElm1.src = `https://www.googletagmanager.com/gtag/js?id=${activeId}`;
+    //   document.head.appendChild(jsElm1);
 
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        window.dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
-      gtag('config', activeId);
-    }
+    //   window.dataLayer = window.dataLayer || [];
+    //   function gtag() {
+    //     window.dataLayer.push(arguments);
+    //   }
+    //   gtag('js', new Date());
+    //   gtag('config', activeId);
+    // }
     if (activeTagManagerId) {
       (function (w, d, s, l, i) {
         w[l] = w[l] || [];
