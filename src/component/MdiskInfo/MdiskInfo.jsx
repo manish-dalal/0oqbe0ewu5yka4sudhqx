@@ -23,7 +23,7 @@ function shuffle(array) {
 
 export default function MdiskInfo({ videoId, type, isLoading }) {
   const [videoData, setvideoData] = useState({
-    display_name: 'An***91',
+    display_name: '***',
     ts: '',
   });
   useEffect(() => {
