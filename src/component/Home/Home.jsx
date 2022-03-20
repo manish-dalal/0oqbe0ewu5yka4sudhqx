@@ -15,7 +15,7 @@ export default function Home() {
       <div className='bg-image'></div>
       <div className='main-body container'>
         <img
-          src='https://res.cloudinary.com/ddvaiwvwr/image/upload/v1646917872/fdisk.in/play_ygqo5c.png'
+          src='https://res.cloudinary.com/ddvaiwvwr/image/upload/v1647776300/fdisk.in/play_ygqo5c_mmlo5w.webp'
           alt='logo'
           className='main-logo'
         />
