@@ -107,6 +107,7 @@ export default function Video() {
           videoId={videoId}
           width={epWidth}
           height={2310}
+          topHeight={topHeight}
           onClick={() => {
             setisClickedIframe(true);
           }}
@@ -122,7 +123,7 @@ export default function Video() {
           }}
         />
       </div>
-      {type === 'm' && <Report />}
+      {type === 'm' && !isLoading && <Report />}
       <div className='ad-footer' style={footerStyle}>
         <MdiskInfo videoId={videoId} type={type} isLoading={isLoading} />
       </div>
