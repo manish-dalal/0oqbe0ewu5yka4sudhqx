@@ -16,6 +16,9 @@ export default function Video() {
   let { type = typeDefaultValue, videoId = '' } = useParams();
   const [isClickedIframe, setisClickedIframe] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [videoData, setvideoData] = useState({
+    filename: '',
+  });
   // let query = useQuery();
   if (videoId) {
     document.title = type === 'd' ? 'Doodstream' : 'Mdisk';
@@ -114,6 +117,8 @@ export default function Video() {
           onLoad={() => setIsLoading(false)}
         />
       )}
+      {/* {type === 'm' && !isLoading && <Report videoData={videoData} />} */}
+      {type === 'm' && <Report videoData={videoData} />}
       <div className='ad-header' style={frameWidthStyle}>
         <div
           className='ad-overlay'
@@ -123,9 +128,13 @@ export default function Video() {
           }}
         />
       </div>
-      {type === 'm' && !isLoading && <Report />}
       <div className='ad-footer' style={footerStyle}>
-        <MdiskInfo videoId={videoId} type={type} isLoading={isLoading} />
+        <MdiskInfo
+          videoId={videoId}
+          type={type}
+          isLoading={isLoading}
+          setvideoData={setvideoData}
+        />
       </div>
     </div>
   );

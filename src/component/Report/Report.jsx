@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './report.css';
 import { useParams } from 'react-router-dom';
 
-export default function Report() {
+export default function Report({ videoData }) {
   let { videoId = '' } = useParams();
   const [show, setshow] = useState(false);
 
@@ -17,7 +17,8 @@ export default function Report() {
     }
   };
   return (
-    <>
+    <div className='report-box'>
+      <div className='t-ellipsis'>{videoData.filename}</div>
       <div
         className='report'
         onClick={() => {
@@ -67,6 +68,6 @@ export default function Report() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }

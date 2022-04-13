@@ -1,10 +1,7 @@
 .report {
-  padding: 0px 16px 0 0px;
+  box-sizing: border-box;
+  padding-right: 26px;
   cursor: pointer;
-  position: absolute;
-  top: 110px;
-  right: 0px;
-  height: 35px;
   display: flex;
   background-color: #fff;
   align-items: center;
@@ -93,4 +90,28 @@
 }
 .mxevt-report-modal .main-body .listItem:hover {
   background-color: rgba(0, 112, 245, 0.06);
+}
+
+.report-box {
+  height: 56px;
+  width: 100%;
+  /* line-height: 46px; */
+  padding-left: 16px;
+  padding-top: 10px;
+  position: absolute;
+  top: 107px;
+  left: 0px;
+  background-color: #fff;
+  color: #35344c;
+  display: flex;
+  align-items: center;
+}
+.report-box .t-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  word-break: break-all;
+  color: #35344c;
+  font-weight: 450;
+  flex: 1;
 }

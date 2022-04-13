@@ -21,7 +21,12 @@ function shuffle(array) {
   return array;
 }
 
-export default function MdiskInfo({ videoId, type, isLoading }) {
+export default function MdiskInfo({
+  videoId,
+  type,
+  isLoading,
+  setvideoData: propSetvideoData,
+}) {
   const [videoData, setvideoData] = useState({
     display_name: '***',
     ts: '',
@@ -50,9 +55,10 @@ export default function MdiskInfo({ videoId, type, isLoading }) {
         .then(({ data }) => {
           const newData = { ...data };
           setvideoData(newData);
+          propSetvideoData(newData);
         });
     }
-  }, [videoId, type]);
+  }, [videoId, type, propSetvideoData]);
 
   const {
     display_name = '',
