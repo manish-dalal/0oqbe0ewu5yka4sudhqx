@@ -90,7 +90,7 @@ export default function Video() {
           // height: 1000 - topHeight,
         }
       : {
-          top: height + 122,
+          top: props.height + 122,
           backgroundColor: '#434645',
         };
   return (
