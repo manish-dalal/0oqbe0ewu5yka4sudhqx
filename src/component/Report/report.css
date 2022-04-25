@@ -93,18 +93,19 @@
 }
 
 .report-box {
-  height: 56px;
+  height: 65px;
   width: 100%;
   /* line-height: 46px; */
   padding-left: 16px;
   padding-top: 10px;
   position: absolute;
-  top: 107px;
+  top: 110px;
   left: 0px;
   background-color: #fff;
   color: #35344c;
   display: flex;
   align-items: center;
+  box-sizing: border-box;
 }
 .report-box .t-ellipsis {
   overflow: hidden;

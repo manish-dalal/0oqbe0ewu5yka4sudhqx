@@ -80,12 +80,12 @@ export default function Video() {
   const topHeight =
     Math.min(window.innerWidth, 480) * 0.6428571428571429 +
     243 +
-    (isClickedIframe ? 35 : 0);
+    (isClickedIframe ? 0 : 0);
   // Math.min(window.innerWidth, 480) * 0.6428571428571429 + 243 + 14;
   const footerStyle =
     type === 'm'
       ? {
-          top: topHeight,
+          top: topHeight - 85,
           // minHeight: '100%',
           // height: 1000 - topHeight,
         }
@@ -109,7 +109,7 @@ export default function Video() {
         <Mdisk
           videoId={videoId}
           width={epWidth}
-          height={2310}
+          height={2360}
           topHeight={topHeight}
           onClick={() => {
             setisClickedIframe(true);

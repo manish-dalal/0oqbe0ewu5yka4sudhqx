@@ -87,6 +87,11 @@ export default function MdiskInfo({
         '4629300',
         '4629302',
         '4629382',
+        '4668708',
+        '4668712',
+        '4668714',
+        '4668716',
+        '4668718',
       ];
       break;
     case iHostname[1]:
@@ -98,6 +103,11 @@ export default function MdiskInfo({
         '4629392',
         '4629394',
         '4629398',
+        '4668694',
+        '4668696',
+        '4668700',
+        '4668702',
+        '4668704',
       ];
       break;
     case iHostname[2]:
