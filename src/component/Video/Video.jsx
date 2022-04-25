@@ -29,7 +29,7 @@ export default function Video() {
   const epWidth =
     window.innerWidth < 480 ? window.innerWidth : window.innerWidth - 20;
   const width = epWidth >= height ? epWidth - (epWidth - height) / 3 : epWidth;
-  const props = { width, height };
+  const props = { width, height: Math.min(height, width) };
 
   const frameWidthStyle = type === 'm' ? { width: Math.min(480, width) } : {};
 
@@ -105,10 +105,10 @@ export default function Video() {
           onLoad={() => setIsLoading(false)}
         />
       ) : (
-        // for showing ads height increased by 1000
         <Mdisk
           videoId={videoId}
           width={epWidth}
+          // ad-height for showing ads height increased by 3660
           height={3660}
           topHeight={topHeight}
           onClick={() => {
