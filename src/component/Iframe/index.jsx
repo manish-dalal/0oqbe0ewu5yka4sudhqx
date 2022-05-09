@@ -12,6 +12,7 @@ const IframeRender = (props) => {
         height={height}
         width={width}
         frameBorder={0}
+        sandbox='allow-forms allow-pointer-lock allow-same-origin allow-scripts allow-top-navigation '
       />
     </div>
   );
