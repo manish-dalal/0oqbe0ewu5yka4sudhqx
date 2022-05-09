@@ -3,4 +3,9 @@ export const config = {
   origin: window.location.origin,
 };
 
-export const iHostname = ['dood.co.in', 'mdisk.co.in', 'fdisk.in'];
+export const iHostname = [
+  'dood.co.in',
+  'mdisk.co.in',
+  'fdisk.in',
+  'mdisk.eu.org',
+];

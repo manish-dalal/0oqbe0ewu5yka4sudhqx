@@ -112,6 +112,22 @@ export default function MdiskInfo({
       break;
     case iHostname[2]:
       break;
+    case iHostname[3]:
+      exoAdsArr = [
+        '4679752',
+        '4679754',
+        '4679756',
+        '4679758',
+        '4679760',
+        '4679764',
+        '4679766',
+        '4679768',
+        '4679772',
+        '4679774',
+        '4679778',
+        '4679780',
+      ];
+      break;
     default:
       break;
   }
