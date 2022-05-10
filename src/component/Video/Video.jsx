@@ -3,8 +3,7 @@ import { useParams } from 'react-router-dom';
 import Dood from './Dood';
 import Mdisk from './Mdisk';
 import './video.css';
-import Report from '../Report';
-import MdiskInfo from '../MdiskInfo';
+import FooterAds from '../FooterAds';
 import { config, iHostname } from '../../config';
 
 // function useQuery() {
@@ -16,9 +15,7 @@ export default function Video() {
   let { type = typeDefaultValue, videoId = '' } = useParams();
   const [isClickedIframe, setisClickedIframe] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [videoData, setvideoData] = useState({
-    filename: '',
-  });
+  const [videoData, setvideoData] = useState({});
   // let query = useQuery();
   if (videoId) {
     document.title = type === 'd' ? 'Doodstream' : 'Mdisk';
@@ -77,17 +74,15 @@ export default function Video() {
   }, []);
 
   //  top: calc(100vw * 0.6428571428571429 + 243px);
-  const topHeight =
-    Math.min(window.innerWidth, 480) * 0.6428571428571429 +
-    243 +
-    (isClickedIframe ? 0 : 0);
+  // const topHeight =
+  //   Math.min(window.innerWidth, 480) * 0.6428571428571429 +
+  //   243 +
+  //   (isClickedIframe ? 0 : 0);
   // Math.min(window.innerWidth, 480) * 0.6428571428571429 + 243 + 14;
   const footerStyle =
     type === 'm'
       ? {
-          top: topHeight - 85,
-          // minHeight: '100%',
-          // height: 1000 - topHeight,
+          position: 'unset',
         }
       : {
           top: props.height + 122,
@@ -108,17 +103,14 @@ export default function Video() {
         <Mdisk
           videoId={videoId}
           width={epWidth}
-          // ad-height for showing ads height increased by 3660
-          height={3660}
-          topHeight={topHeight}
           onClick={() => {
             setisClickedIframe(true);
           }}
           onLoad={() => setIsLoading(false)}
+          videoData={videoData}
+          setvideoData={setvideoData}
         />
       )}
-      {/* {type === 'm' && !isLoading && <Report videoData={videoData} />} */}
-      {type === 'm' && <Report videoData={videoData} />}
       <div className='ad-header' style={frameWidthStyle}>
         <div
           className='ad-overlay'
@@ -129,12 +121,7 @@ export default function Video() {
         />
       </div>
       <div className='ad-footer' style={footerStyle}>
-        <MdiskInfo
-          videoId={videoId}
-          type={type}
-          isLoading={isLoading}
-          setvideoData={setvideoData}
-        />
+        <FooterAds isLoading={isLoading} />
       </div>
     </div>
   );

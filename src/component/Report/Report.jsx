@@ -18,7 +18,7 @@ export default function Report({ videoData }) {
   };
   return (
     <div className='report-box'>
-      <div className='t-ellipsis'>{videoData.filename}</div>
+      <div className='t-ellipsis'>{videoData.name}</div>
       <div
         className='report'
         onClick={() => {

@@ -93,14 +93,11 @@
 }
 
 .report-box {
-  height: 65px;
+  height: 46px;
   width: 100%;
   /* line-height: 46px; */
   padding-left: 16px;
-  padding-top: 10px;
-  position: absolute;
-  top: 110px;
-  left: 0px;
+  padding-top: 5px;
   background-color: #fff;
   color: #35344c;
   display: flex;
@@ -114,5 +111,6 @@
   word-break: break-all;
   color: #35344c;
   font-weight: 450;
+  font-size: 18px;
   flex: 1;
 }
