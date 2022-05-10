@@ -13,7 +13,7 @@ import { config, iHostname } from '../../config';
 export default function Video() {
   const typeDefaultValue = config.hostname === iHostname[0] ? 'd' : 'm';
   let { type = typeDefaultValue, videoId = '' } = useParams();
-  const [isClickedIframe, setisClickedIframe] = useState(false);
+  // const [isClickedIframe, setisClickedIframe] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [videoData, setvideoData] = useState({});
   // let query = useQuery();
@@ -95,7 +95,7 @@ export default function Video() {
           videoId={videoId}
           {...props}
           onClick={() => {
-            setisClickedIframe(true);
+            // setisClickedIframe(true);
           }}
           onLoad={() => setIsLoading(false)}
         />
@@ -104,7 +104,7 @@ export default function Video() {
           videoId={videoId}
           width={epWidth}
           onClick={() => {
-            setisClickedIframe(true);
+            // setisClickedIframe(true);
           }}
           onLoad={() => setIsLoading(false)}
           videoData={videoData}

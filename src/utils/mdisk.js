@@ -106,13 +106,13 @@ function simpleGooglePlayUrl() {
   return 'intent:market://details?id=com.young.simple.player&referrer=utm_source%3Dtelegram_bot%26utm_medium%3Dweb%26utm_campaign%3Dtelegram_bot#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end';
 }
 
-function takaGooglePlayUrl() {
-  return 'intent:market://details?id=com.next.innovation.takatak&referrer=utm_source%3DSP%26utm_medium%3Dweb%26utm_campaign%3DSP#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end';
-}
+// function takaGooglePlayUrl() {
+//   return 'intent:market://details?id=com.next.innovation.takatak&referrer=utm_source%3DSP%26utm_medium%3Dweb%26utm_campaign%3DSP#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end';
+// }
 
-function mxOnlineGooglePlayUrl() {
-  return 'intent:market://details?id=com.mxtech.videoplayer.online&referrer=utm_source%3Dtelegram_bot%26utm_medium%3Dweb%26utm_campaign%3Dtelegram_bot#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end';
-}
+// function mxOnlineGooglePlayUrl() {
+//   return 'intent:market://details?id=com.mxtech.videoplayer.online&referrer=utm_source%3Dtelegram_bot%26utm_medium%3Dweb%26utm_campaign%3Dtelegram_bot#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end';
+// }
 
 function splayerAppStoreUrl() {
   return 'https://apps.apple.com/app/splayer-all-video-player/id1616607575';

@@ -27,7 +27,7 @@ export default function Mdisk({
           propSetvideoData(newData);
         });
     }
-  }, [videoId, propSetvideoData]);
+  }, [videoId, propSetvideoData, onLoad]);
 
   return (
     <div className='mdisk-cp' style={{ height }}>
