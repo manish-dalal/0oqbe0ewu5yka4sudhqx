@@ -14,7 +14,7 @@ export default function Play({ videoData }) {
   const Ref = useRef(null);
 
   const handleWaitFunction = (fun = () => {}) => {
-    if (videoData) {
+    if (videoData?.id) {
       fun(videoData);
       if (Ref.current) clearInterval(Ref.current);
     } else {
