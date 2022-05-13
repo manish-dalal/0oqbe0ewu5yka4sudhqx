@@ -27,6 +27,7 @@ export default function Mdisk({
           propSetvideoData(newData);
         });
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -38,9 +39,9 @@ export default function Mdisk({
   );
 }
 
-{
-  // height={3660}
-  /* <Iframe
+// {
+// height={3660}
+/* <Iframe
         id='mdisk-element'
         src={`https://mdisk.me/convertor/14x9/${videoId}`}
         height={topHeight}
@@ -52,4 +53,4 @@ export default function Mdisk({
         onInferredClick={onClick}
         onLoad={onLoad}
       /> */
-}
+// }
