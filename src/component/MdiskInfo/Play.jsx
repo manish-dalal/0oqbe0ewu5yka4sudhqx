@@ -15,7 +15,7 @@ export default function Play({ videoData }) {
 
   const handleWaitFunction = (fun = () => {}) => {
     if (videoData) {
-      fun();
+      fun(videoData);
       if (Ref.current) clearInterval(Ref.current);
     } else {
       if (Ref.current) clearInterval(Ref.current);
@@ -33,7 +33,9 @@ export default function Play({ videoData }) {
           height: Math.min(window.innerWidth, 480) * 0.6428571428571429,
         }}
         onClick={() =>
-          handleWaitFunction(() => onPlay('playButtonClickedSp', videoData))
+          handleWaitFunction((dataObj) =>
+            onPlay('playButtonClickedSp', dataObj || videoData)
+          )
         }
       >
         <div className='video-cover'>
@@ -48,7 +50,9 @@ export default function Play({ videoData }) {
         <li>
           <div
             className='btn-item t-white t-12'
-            onClick={() => handleWaitFunction(() => onDownload(videoData))}
+            onClick={() =>
+              handleWaitFunction((dataObj) => onDownload(dataObj || videoData))
+            }
           >
             <span className='btn-txt btn-download'>Download Video</span>
           </div>
@@ -57,7 +61,9 @@ export default function Play({ videoData }) {
           <div
             className='btn-item t-white t-12'
             onClick={() =>
-              handleWaitFunction(() => onPlay('playonlineClickedSp', videoData))
+              handleWaitFunction((dataObj) =>
+                onPlay('playonlineClickedSp', dataObj || videoData)
+              )
             }
           >
             <span className='btn-txt btn-play'>Play Online</span>
@@ -72,7 +78,9 @@ export default function Play({ videoData }) {
               <div
                 className='btn-item t-white t-12'
                 onClick={() =>
-                  handleWaitFunction(() => onSimpleDownload(videoData))
+                  handleWaitFunction((dataObj) =>
+                    onSimpleDownload(dataObj || videoData)
+                  )
                 }
               >
                 <span className='btn-txt btn-download'>Download Video</span>
@@ -82,8 +90,8 @@ export default function Play({ videoData }) {
               <div
                 className='btn-item t-white t-12'
                 onClick={() =>
-                  handleWaitFunction(() =>
-                    onSimplePlay('splayonlineClickedSp', videoData)
+                  handleWaitFunction((dataObj) =>
+                    onSimplePlay('splayonlineClickedSp', dataObj || videoData)
                   )
                 }
               >
