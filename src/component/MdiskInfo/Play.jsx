@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Play.css';
 import {
   onPlay,
@@ -12,17 +12,20 @@ import {
 export default function Play({ videoData }) {
   const [showOtherOptions, setshowOtherOptions] = useState(false);
   const Ref = useRef(null);
+  const handleFun = useRef(null);
+
+  useEffect(() => {
+    if (handleFun.current && videoData.id) {
+      handleFun.current(videoData);
+      handleFun.current = null;
+    }
+  }, [videoData]);
 
   const handleWaitFunction = (fun = () => {}) => {
     if (videoData?.id) {
       fun(videoData);
-      if (Ref.current) clearInterval(Ref.current);
     } else {
-      if (Ref.current) clearInterval(Ref.current);
-      const id = setInterval(() => {
-        handleWaitFunction(fun);
-      }, 400);
-      Ref.current = id;
+      handleFun.current = fun;
     }
   };
   return (

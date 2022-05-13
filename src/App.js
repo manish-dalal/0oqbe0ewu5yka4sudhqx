@@ -88,7 +88,7 @@ function App() {
 
     //   window.dataLayer = window.dataLayer || [];
     //   function gtag() {
-    //     window.dataLayer.push(arguments);
+    //     pushToDataLayer(arguments);
     //   }
     //   gtag('js', new Date());
     //   gtag('config', activeId);

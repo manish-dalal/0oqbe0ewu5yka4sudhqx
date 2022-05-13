@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './report.css';
 import { useParams } from 'react-router-dom';
+import { pushToDataLayer } from '../../utils/google-analytics';
 
 export default function Report({ videoData }) {
   let { videoId = '' } = useParams();
@@ -9,7 +10,7 @@ export default function Report({ videoData }) {
   const onClose = (reason = '') => {
     setshow(false);
     if (reason && typeof reason === 'string') {
-      window.dataLayer.push({
+      pushToDataLayer({
         event: 'video_report',
         id: videoId || '',
         reason,

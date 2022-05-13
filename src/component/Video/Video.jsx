@@ -5,6 +5,7 @@ import Mdisk from './Mdisk';
 import './video.css';
 import FooterAds from '../FooterAds';
 import { config, iHostname } from '../../config';
+import { pushToDataLayer } from '../../utils/google-analytics';
 
 // function useQuery() {
 //   const { search } = useLocation();
@@ -116,7 +117,7 @@ export default function Video() {
           className='ad-overlay'
           onClick={() => {
             window.open('https://t.me/primexmov', '_blank');
-            window.dataLayer.push({ event: 'click_header', id: videoId || '' });
+            pushToDataLayer({ event: 'click_header', id: videoId || '' });
           }}
         />
       </div>

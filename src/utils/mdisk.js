@@ -1,3 +1,5 @@
+import { pushToDataLayer } from './google-analytics';
+
 const navigator = window.navigator;
 const chromeVersionMatch = navigator.appVersion.match(/Chrome\/((?:\d+\.?)+)/);
 const chromeVersion = chromeVersionMatch && chromeVersionMatch[1];
@@ -141,7 +143,7 @@ function openApp(href, googlePlayUrl) {
 }
 
 export function onPlay(clickEvent, videoData) {
-  window.dataLayer.push({ event: 'play_1', id: videoData.id });
+  pushToDataLayer({ event: 'play_1', id: videoData.id });
 
   if (isIOS) {
     let playUrl = `splayer://playback?url=${videoData.src}&action=playback`;
@@ -189,7 +191,7 @@ export function convertToMMSS(seconds = 0) {
 }
 
 export function onSimplePlay(clickEvent, videoData) {
-  window.dataLayer.push({ event: 'play_2', id: videoData.id });
+  pushToDataLayer({ event: 'play_2', id: videoData.id });
   let intent = `intent:${videoData.src}#Intent;action=com.young.simple.player.playback_online;package=com.young.simple.player;`;
 
   let arr = [intent];
@@ -208,7 +210,7 @@ export function onSimplePlay(clickEvent, videoData) {
 }
 
 export function onDownload(videoData) {
-  window.dataLayer.push({ event: 'download_1', id: videoData.id });
+  pushToDataLayer({ event: 'download_1', id: videoData.id });
 
   if (isIOS) {
     let downloadUrl = `splayer://playback?url=${videoData.downloadUrl}&action=download`;
@@ -239,7 +241,7 @@ export function onSimpleDownload(videoData) {
   // if (!this.downloadable) {
   //   return;
   // }
-  window.dataLayer.push({ event: 'download_2', id: videoData.id });
+  pushToDataLayer({ event: 'download_2', id: videoData.id });
 
   let intent = `intent:${videoData.downloadUrl}#Intent;action=com.young.simple.player.download;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.young.simple.player;`;
   let arr = [intent];
