@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import './FooterAds.css';
 import { config, iHostname } from '../../config';
 
@@ -7,19 +7,8 @@ function shuffle(array) {
   return array;
 }
 
-export default function MdiskInfo({ isLoading }) {
-  useEffect(() => {
-    if (!isLoading) {
-      window.AdProvider = window?.AdProvider || [];
-      window.AdProvider.push({ serve: {} });
-      var jsElm1 = document.createElement('script');
-      jsElm1.async = true;
-      jsElm1.type = 'application/javascript';
-      jsElm1.src = 'https://a.exdynsrv.com/ad-provider.js';
-      document.head.appendChild(jsElm1);
-    }
-  }, [isLoading]);
-
+const adPageSize = 5;
+const getExoAdsArr = () => {
   let exoAdsArr = [
     '4577102',
     '4577184',
@@ -78,20 +67,72 @@ export default function MdiskInfo({ isLoading }) {
         '4679774',
         '4679778',
         '4679780',
+        '4685640',
+        '4685642',
+        '4685644',
+        '4685646',
+        '4685648',
+        '4685650',
+        '4685652',
+        '4685654',
+        '4685656',
+        '4685658',
+        '4685660',
+        '4685662',
       ];
       break;
     default:
       break;
   }
+  return exoAdsArr;
+};
+
+export default function MdiskInfo({ isLoading }) {
+  const exoAdsArr = getExoAdsArr();
+  const [count, setcount] = useState(adPageSize);
+  const timerRef = useRef(null);
+
+  useEffect(() => {
+    if (!isLoading) {
+      window.AdProvider = window?.AdProvider || [];
+      window.AdProvider.push({ serve: {} });
+      var jsElm1 = document.createElement('script');
+      jsElm1.async = true;
+      jsElm1.type = 'application/javascript';
+      jsElm1.src = 'https://a.exdynsrv.com/ad-provider.js';
+      document.head.appendChild(jsElm1);
+    }
+  }, [isLoading]);
+
+  useEffect(() => {
+    if (!isLoading) {
+      timerRef.current = setTimeout(() => {
+        const nextCount = count + adPageSize;
+        if (count < exoAdsArr.length) {
+          setcount(nextCount);
+          window.AdProvider.push({ serve: {} });
+        } else {
+          timerRef.current && clearTimeout(timerRef.current);
+        }
+      }, 1000);
+      return () => timerRef.current && clearTimeout(timerRef.current);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isLoading, count]);
+
+  const paginateArr = exoAdsArr.slice(
+    0,
+    count > exoAdsArr.length ? exoAdsArr.length : count
+  );
   return (
     <div className='MdiskInfo'>
       {!isLoading && (
         <div className='MdiskInfo-ads'>
-          {shuffle(exoAdsArr).map((el, index) => (
+          {shuffle(paginateArr).map((el, index) => (
             <ins
               className='adsbyexoclick'
               data-zoneid={el}
-              key={`ad-${index}`}
+              key={`ad-${el}`}
             ></ins>
           ))}
         </div>

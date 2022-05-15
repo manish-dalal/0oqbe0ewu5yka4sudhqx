@@ -11,7 +11,6 @@ import {
 
 export default function Play({ videoData }) {
   const [showOtherOptions, setshowOtherOptions] = useState(false);
-  const Ref = useRef(null);
   const handleFun = useRef(null);
 
   useEffect(() => {
