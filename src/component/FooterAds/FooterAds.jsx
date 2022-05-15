@@ -7,7 +7,7 @@ function shuffle(array) {
   return array;
 }
 
-const adPageSize = 5;
+const adPageSize = 8;
 const getExoAdsArr = () => {
   let exoAdsArr = [
     '4577102',
@@ -79,6 +79,22 @@ const getExoAdsArr = () => {
         '4685658',
         '4685660',
         '4685662',
+        '4685670',
+        '4685672',
+        '4685674',
+        '4685676',
+        '4685678',
+        '4685680',
+        '4685682',
+        '4685684',
+        '4685686',
+        '4685688',
+        '4685690',
+        '4685692',
+        '4685694',
+        '4685696',
+        '4685698',
+        '4685700',
       ];
       break;
     default:
