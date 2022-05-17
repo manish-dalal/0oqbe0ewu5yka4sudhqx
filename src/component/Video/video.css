@@ -1,8 +1,6 @@
 #dood-element {
   border: none;
   padding-top: 120px;
-  /* ad-height for showing ads height increased by 2980px */
-  padding-bottom: 2980px;
 }
 
 #mdisk-element {
@@ -32,17 +30,11 @@
 }
 
 .ad-footer {
-  position: absolute;
-  bottom: 0;
   background-color: #fff;
   width: 100%;
   overflow: hidden;
 }
 
-/* .ad-footer-mdisk {
-  top: calc(100vw * 0.6428571428571429 + 243px);
-  height: calc(1000px - 100vw * 0.6428571428571429 + 243px);
-} */
 .ad-overlay {
   position: absolute;
   top: 0;

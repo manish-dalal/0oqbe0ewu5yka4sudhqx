@@ -2,12 +2,13 @@ import React, { useEffect, useState, useRef } from 'react';
 import './FooterAds.css';
 import { config, iHostname } from '../../config';
 
+const adPageSize = 8;
+
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
   return array;
 }
 
-const adPageSize = 8;
 const getExoAdsArr = () => {
   let exoAdsArr = [
     '4577102',
@@ -209,7 +210,7 @@ const getExoAdsArr = () => {
     default:
       break;
   }
-  return exoAdsArr;
+  return shuffle(exoAdsArr);
 };
 
 export default function MdiskInfo({ isLoading }) {
@@ -253,7 +254,7 @@ export default function MdiskInfo({ isLoading }) {
     <div className='MdiskInfo'>
       {!isLoading && (
         <div className='MdiskInfo-ads'>
-          {shuffle(paginateArr).map((el, index) => (
+          {paginateArr.map((el, index) => (
             <ins
               className='adsbyexoclick'
               data-zoneid={el}

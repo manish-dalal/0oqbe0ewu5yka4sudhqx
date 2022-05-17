@@ -86,7 +86,7 @@ export default function Video() {
           position: 'unset',
         }
       : {
-          top: props.height + 122,
+          // top: props.height + 122,
           backgroundColor: '#434645',
         };
   return (
