@@ -28,6 +28,11 @@ function isStreamingUrl(link) {
   return url.pathname.endsWith('.m3u8') || url.pathname.endsWith('.mpd');
 }
 
+function isDeeplinkUrl(link) {
+  let url = new URL(link);
+  return url.protocol.startsWith('mxplay');
+}
+
 export const transformMdiskGet = (data) => {
   let streamingUrl = data.source;
   let downloadUrl = data.download;
@@ -36,11 +41,13 @@ export const transformMdiskGet = (data) => {
     playUrl = streamingUrl;
   }
 
-  let domainMatches = playUrl.match(/https?:\/\/([^/]*)/);
+  let domainMatches = playUrl.match(/(?:https|mxplay|mxplayer)?:\/\/([^/]*)/);
   let domain = domainMatches[1];
 
   let useOnlinePlayer = isStreamingUrl(playUrl);
   let useOnlineDownloader = isStreamingUrl(downloadUrl);
+
+  let isDeeplink = isDeeplinkUrl(playUrl);
 
   let owner = data.display_name || '';
   if (owner.length <= 4) {
@@ -78,6 +85,7 @@ export const transformMdiskGet = (data) => {
     userSrc: data.source_type || '',
     duration: data.duration || 0,
     poster,
+    isDeeplink,
     useOnlinePlayer,
     useOnlineDownloader,
     size: data.size || 0,
@@ -108,12 +116,8 @@ function simpleGooglePlayUrl() {
   return 'intent:market://details?id=com.young.simple.player&referrer=utm_source%3Dtelegram_bot%26utm_medium%3Dweb%26utm_campaign%3Dtelegram_bot#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end';
 }
 
-// function takaGooglePlayUrl() {
-//   return 'intent:market://details?id=com.next.innovation.takatak&referrer=utm_source%3DSP%26utm_medium%3Dweb%26utm_campaign%3DSP#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end';
-// }
-
-// function mxOnlineGooglePlayUrl() {
-//   return 'intent:market://details?id=com.mxtech.videoplayer.online&referrer=utm_source%3Dtelegram_bot%26utm_medium%3Dweb%26utm_campaign%3Dtelegram_bot#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end';
+// function mxGooglePlayLiveUrl() {
+//   return 'intent:market://details?id=com.mxtech.videoplayer.ad&referrer=utm_source%3Dtelegram_bot%26utm_medium%3Dweb%26utm_campaign%3Dsplive#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end';
 // }
 
 function splayerAppStoreUrl() {
@@ -148,6 +152,14 @@ export function onPlay(clickEvent, videoData) {
   if (isIOS) {
     let playUrl = `splayer://playback?url=${videoData.src}&action=playback`;
     openApp(playUrl, splayerAppStoreUrl());
+    return;
+  }
+
+  if (videoData.isDeeplink) {
+    let url = new URL(videoData.src);
+    url.searchParams.append('utm_medium', videoData.fromUser);
+    url.searchParams.append('utm_campaign', videoData.id);
+    openApp(url.toString(), mxGooglePlayUrl());
     return;
   }
 
@@ -215,6 +227,14 @@ export function onDownload(videoData) {
   if (isIOS) {
     let downloadUrl = `splayer://playback?url=${videoData.downloadUrl}&action=download`;
     openApp(downloadUrl, splayerAppStoreUrl());
+    return;
+  }
+
+  if (videoData.isDeeplink) {
+    let url = new URL(videoData.src);
+    url.searchParams.append('utm_medium', videoData.fromUser);
+    url.searchParams.append('utm_campaign', videoData.id);
+    openApp(url.toString(), mxGooglePlayUrl());
     return;
   }
 

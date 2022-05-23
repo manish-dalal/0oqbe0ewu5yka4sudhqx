@@ -1,16 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useRef, useEffect } from 'react';
 import './Play.css';
 import {
   onPlay,
   convertToMMSS,
-  isIOS,
+  // isIOS,
   onSimplePlay,
   onDownload,
   onSimpleDownload,
 } from '../../utils/mdisk';
 
 export default function Play({ videoData }) {
-  const [showOtherOptions, setshowOtherOptions] = useState(false);
+  // const [showOtherOptions, setshowOtherOptions] = useState(false);
   const handleFun = useRef(null);
 
   useEffect(() => {
@@ -72,45 +72,45 @@ export default function Play({ videoData }) {
           </div>
         </li>
       </ul>
-      {showOtherOptions && (
-        <div className='simple-player-2'>
-          <div className='option-title'>Option2</div>
-          <ul className='disk-btns'>
-            <li>
-              <div
-                className='btn-item t-white t-12'
-                onClick={() =>
-                  handleWaitFunction((dataObj) =>
-                    onSimpleDownload(dataObj || videoData)
-                  )
-                }
-              >
-                <span className='btn-txt btn-download'>Download Video</span>
-              </div>
-            </li>
-            <li>
-              <div
-                className='btn-item t-white t-12'
-                onClick={() =>
-                  handleWaitFunction((dataObj) =>
-                    onSimplePlay('splayonlineClickedSp', dataObj || videoData)
-                  )
-                }
-              >
-                <span className='btn-txt btn-play'>Play Online</span>
-              </div>
-            </li>
-          </ul>
-        </div>
-      )}
-      {!isIOS && !showOtherOptions && (
+      {/* {showOtherOptions && ( */}
+      <div className='simple-player-2'>
+        <div className='option-title'>Option2</div>
+        <ul className='disk-btns'>
+          <li>
+            <div
+              className='btn-item t-white t-12'
+              onClick={() =>
+                handleWaitFunction((dataObj) =>
+                  onSimpleDownload(dataObj || videoData)
+                )
+              }
+            >
+              <span className='btn-txt btn-download'>Download Video</span>
+            </div>
+          </li>
+          <li>
+            <div
+              className='btn-item t-white t-12'
+              onClick={() =>
+                handleWaitFunction((dataObj) =>
+                  onSimplePlay('splayonlineClickedSp', dataObj || videoData)
+                )
+              }
+            >
+              <span className='btn-txt btn-play'>Play Online</span>
+            </div>
+          </li>
+        </ul>
+      </div>
+      {/* )} */}
+      {/* {!isIOS && !showOtherOptions && (
         <div
           className='option-toggle'
           onClick={() => setshowOtherOptions(true)}
         >
           MORE PLAYER
         </div>
-      )}
+      )} */}
     </div>
   );
 }

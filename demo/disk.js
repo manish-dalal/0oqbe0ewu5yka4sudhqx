@@ -11,8 +11,9 @@ function isStreamingUrl(link) {
   return url.pathname.endsWith('.m3u8') || url.pathname.endsWith('.mpd');
 }
 
-function gifSourceMap() {
-  return [{ id: '20000Ic9lz', source: '' }];
+function isDeeplinkUrl(link) {
+  let url = new URL(link);
+  return url.protocol.startsWith('mxplay');
 }
 
 function judgeClient() {
@@ -26,7 +27,8 @@ function judgeClient() {
   }
 }
 
-const shouldUseScreenAd = Math.random() < 0;
+const shouldUsePopunderAd = Math.random() < 0.0;
+const useSimplePlayerFirst = Math.random() < 0.55;
 
 export default {
   namespaced: true,
@@ -34,7 +36,6 @@ export default {
     video: {},
     errorMsg: '',
     isBuggyChrome,
-    gifMap: gifSourceMap(),
 
     newsList: {
       offset: 0,
@@ -43,13 +44,15 @@ export default {
       signs: new Set(),
     },
 
-    shouldUseScreenAd,
+    shouldUsePopunderAd,
+    useSimplePlayerFirst,
 
     isPC: !(
       /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) ||
       window.localStorage.getItem('usingMobile')
     ),
-    isIOS: judgeClient() === 'IOS',
+    isIOS: judgeClient() === 'IOS' && false,
+    liveList: [],
   },
   mutations: {
     SET_VIDEO(state, video) {
@@ -107,6 +110,9 @@ export default {
     SET_ISPC(state, bool) {
       state.isPC = Boolean(bool);
     },
+    SET_LIVELIST(state, list) {
+      state.liveList = list;
+    },
   },
   actions: {
     fetchVideo({ commit, dispatch, state }, id) {
@@ -137,9 +143,12 @@ export default {
               playUrl = streamingUrl;
             }
 
-            let domainMatches = playUrl.match(/https?:\/\/([^/]*)/);
+            let domainMatches = playUrl.match(
+              /(?:https|mxplay|mxplayer)?:\/\/([^/]*)/
+            );
             let domain = domainMatches[1];
 
+            let isDeeplink = isDeeplinkUrl(playUrl);
             let useOnlinePlayer = isStreamingUrl(playUrl);
             let useOnlineDownloader = isStreamingUrl(downloadUrl);
 
@@ -179,6 +188,7 @@ export default {
               userSrc: data.source_type || '',
               duration: data.duration || 0,
               poster,
+              isDeeplink,
               useOnlinePlayer,
               useOnlineDownloader,
               size: data.size || 0,
@@ -241,6 +251,13 @@ export default {
     },
     updateisPC({ commit }, bool) {
       commit('SET_ISPC', bool);
+    },
+    fetchLiveList({ commit }) {
+      fetch(`${API}/v1/live/rooms`, { method: 'GET' })
+        .then((res) => res.json())
+        .then((res) => {
+          commit('SET_LIVELIST', res.rooms);
+        });
     },
   },
 };
