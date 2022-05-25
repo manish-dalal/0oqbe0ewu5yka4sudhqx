@@ -103,7 +103,6 @@ ul.disk-btns .btn-txt {
   padding: 0 16px;
 }
 
-.simple-player-2 ul.disk-btns .btn-item,
-ul.disk-btns .btn-item {
+.simple-player-2 ul.disk-btns .btn-item {
   background-image: linear-gradient(285deg, #ff6d6d, #ff2e67 0)
 }

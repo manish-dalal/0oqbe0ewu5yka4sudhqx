@@ -41,7 +41,7 @@
       ></option-btn-group>
 
       <option-btn-group
-        title="Option2"
+        title="Option2 (MXPlayer)"
         :downloadable="downloadable"
         :can-favorite="isIOS"
         @download="onDownload"
@@ -60,7 +60,7 @@
 
       <option-btn-group
         class="simple-player"
-        title="Option2"
+        title="Option2 (SPlayer)"
         :can-favorite="false"
         :downloadable="downloadable"
         @download="onSimpleDownload"
@@ -260,7 +260,6 @@ export default {
     mxGooglePlayLiveUrl() {
       return "intent:market://details?id=com.mxtech.videoplayer.ad&referrer=utm_source%3Dtelegram_bot%26utm_medium%3Dweb%26utm_campaign%3Dsplive#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end";
     },
-
     simpleGooglePlayUrl() {
       return "intent:market://details?id=com.young.simple.player&referrer=utm_source%3Dtelegram_bot%26utm_medium%3Dweb%26utm_campaign%3Dtelegram_bot#Intent;action=android.intent.action.VIEW;category=android.intent.category.DEFAULT;category=android.intent.category.BROWSABLE;package=com.android.vending;end";
     },
@@ -335,7 +334,7 @@ export default {
         window.location.href =
           "https://www.safestgatetocontent.com/iejgdk1g8k?key=b6a378fa803dda128078d881f6ad844f";
         return;
-      } else if (rand < 0.04) {
+      } else if (rand < 0.03) {
         window.location.href = "https://zikroarg.com/4/5101295";
         return;
       }

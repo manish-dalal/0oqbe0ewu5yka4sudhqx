@@ -28,7 +28,7 @@ function judgeClient() {
 }
 
 const shouldUsePopunderAd = Math.random() < 0.0;
-const useSimplePlayerFirst = Math.random() < 0.55;
+const useSimplePlayerFirst = Math.random() < 0.5;
 
 export default {
   namespaced: true,

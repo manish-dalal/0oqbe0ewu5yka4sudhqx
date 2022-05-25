@@ -74,7 +74,7 @@ export default function Play({ videoData }) {
       </ul>
       {/* {showOtherOptions && ( */}
       <div className='simple-player-2'>
-        <div className='option-title'>Option2</div>
+        <div className='option-title'>{`Option2 (SPlayer)`}</div>
         <ul className='disk-btns'>
           <li>
             <div
