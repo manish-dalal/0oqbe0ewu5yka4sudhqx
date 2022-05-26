@@ -240,7 +240,7 @@ export default function MdiskInfo({ isLoading }) {
         } else {
           timerRef.current && clearTimeout(timerRef.current);
         }
-      }, 1000);
+      }, 2000);
       return () => timerRef.current && clearTimeout(timerRef.current);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
