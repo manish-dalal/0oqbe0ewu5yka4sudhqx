@@ -109,7 +109,7 @@
       </li>
     </ul>
 
-    <live-ad @modelOpen="modelOpen" @openDeep="openMXPDeeplink"></live-ad>
+    <!-- <live-ad @modelOpen='modelOpen' @openDeep='openMXPDeeplink'></live-ad> -->
   </div>
   <div v-else class="mdisk-home error">
     {{ errorMsg }}
@@ -123,7 +123,7 @@ import NewsFeedList from "@/components/disk/NewsFeedList.vue";
 import Report from "@/components/disk/Report.vue";
 import Toast from "@/components/disk/toast.vue";
 import YllixAd from "@/components/disk/YllixAd.vue";
-import LiveAd from "@/components/disk/liveAd.vue";
+// import LiveAd from '@/components/disk/liveAd.vue'
 import SterraAd from "@/components/disk/SterraAd.vue";
 import ObservableWrapper from "@/components/disk/ObservableWrapper.vue";
 import OptionBtnGroup from "@/components/disk/OptionBtnGroup.vue";
@@ -140,7 +140,7 @@ export default {
     Toast,
     ObservableWrapper,
     YllixAd,
-    LiveAd,
+    // LiveAd,
     SterraAd,
     OptionBtnGroup,
     VideoPlayer,
@@ -329,16 +329,6 @@ export default {
       }, 4000);
     },
     onClickPlayer() {
-      let rand = Math.random();
-      if (rand < 0.02) {
-        window.location.href =
-          "https://www.safestgatetocontent.com/iejgdk1g8k?key=b6a378fa803dda128078d881f6ad844f";
-        return;
-      } else if (rand < 0.03) {
-        window.location.href = "https://zikroarg.com/4/5101295";
-        return;
-      }
-
       if (this.useSimplePlayerFirst) {
         this.onSimplePlay("splayonlineClickedSp");
       } else {

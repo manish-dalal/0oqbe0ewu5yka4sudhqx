@@ -27,8 +27,8 @@ function judgeClient() {
   }
 }
 
-const shouldUsePopunderAd = Math.random() < 0.0;
-const useSimplePlayerFirst = Math.random() < 0.5;
+const useSimplePlayerFirst = Math.random() < 0.2;
+const shouldUsePushAd = false;
 
 export default {
   namespaced: true,
@@ -44,8 +44,8 @@ export default {
       signs: new Set(),
     },
 
-    shouldUsePopunderAd,
     useSimplePlayerFirst,
+    shouldUsePushAd,
 
     isPC: !(
       /Android|webOS|iPhone|iPod|BlackBerry/i.test(navigator.userAgent) ||
