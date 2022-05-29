@@ -73,35 +73,37 @@ export default function Play({ videoData }) {
         </li>
       </ul>
       {/* {showOtherOptions && ( */}
-      <div className='simple-player-2'>
-        <div className='option-title'>{`Option2 (SPlayer)`}</div>
-        <ul className='disk-btns'>
-          <li>
-            <div
-              className='btn-item t-white t-12'
-              onClick={() =>
-                handleWaitFunction((dataObj) =>
-                  onSimpleDownload(dataObj || videoData)
-                )
-              }
-            >
-              <span className='btn-txt btn-download'>Download Video</span>
-            </div>
-          </li>
-          <li>
-            <div
-              className='btn-item t-white t-12'
-              onClick={() =>
-                handleWaitFunction((dataObj) =>
-                  onSimplePlay('splayonlineClickedSp', dataObj || videoData)
-                )
-              }
-            >
-              <span className='btn-txt btn-play'>Play Online</span>
-            </div>
-          </li>
-        </ul>
-      </div>
+      {!videoData.isDeeplink && (
+        <div className='simple-player-2'>
+          <div className='option-title'>{`Option2 (SPlayer)`}</div>
+          <ul className='disk-btns'>
+            <li>
+              <div
+                className='btn-item t-white t-12'
+                onClick={() =>
+                  handleWaitFunction((dataObj) =>
+                    onSimpleDownload(dataObj || videoData)
+                  )
+                }
+              >
+                <span className='btn-txt btn-download'>Download Video</span>
+              </div>
+            </li>
+            <li>
+              <div
+                className='btn-item t-white t-12'
+                onClick={() =>
+                  handleWaitFunction((dataObj) =>
+                    onSimplePlay('splayonlineClickedSp', dataObj || videoData)
+                  )
+                }
+              >
+                <span className='btn-txt btn-play'>Play Online</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      )}
       {/* )} */}
       {/* {!isIOS && !showOtherOptions && (
         <div

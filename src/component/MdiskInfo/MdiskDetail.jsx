@@ -43,7 +43,7 @@ export default function MdiskInfo({ videoData }) {
           {!!(width || height) && (
             <span className='info-resolution'>{`${width}*${height} · `}</span>
           )}
-          {!!fileSize && (
+          {fileSize !== undefined && (
             <span className='info-size'>{videoSize(fileSize)}</span>
           )}
         </div>

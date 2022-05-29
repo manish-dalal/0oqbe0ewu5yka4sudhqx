@@ -28,7 +28,7 @@ function judgeClient() {
 }
 
 const useSimplePlayerFirst = Math.random() < 0.2;
-const shouldUsePushAd = false;
+const shouldUsePushAd = true;
 
 export default {
   namespaced: true,

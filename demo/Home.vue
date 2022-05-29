@@ -31,7 +31,7 @@
       @favorite="onClickFavorite(1)"
     ></video-player>
 
-    <div v-if="useSimplePlayerFirst">
+    <div v-if="useSplayerFirst">
       <option-btn-group
         class="simple-player"
         :can-favorite="false"
@@ -59,6 +59,7 @@
       ></option-btn-group>
 
       <option-btn-group
+        v-if="!shouldHideSplayer"
         class="simple-player"
         title="Option2 (SPlayer)"
         :can-favorite="false"
@@ -172,6 +173,12 @@ export default {
       "useSimplePlayerFirst",
     ]),
 
+    shouldHideSplayer() {
+      return this.video.isDeeplink;
+    },
+    useSplayerFirst() {
+      return this.useSimplePlayerFirst && !this.shouldHideSplayer;
+    },
     testing() {
       return this.$route.query.status === "testing";
     },
@@ -329,7 +336,7 @@ export default {
       }, 4000);
     },
     onClickPlayer() {
-      if (this.useSimplePlayerFirst) {
+      if (this.useSplayerFirst) {
         this.onSimplePlay("splayonlineClickedSp");
       } else {
         this.onPlay("playButtonClickedSp");
