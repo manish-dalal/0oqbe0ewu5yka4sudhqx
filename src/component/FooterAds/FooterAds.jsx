@@ -232,16 +232,18 @@ export default function MdiskInfo({ isLoading }) {
 
   useEffect(() => {
     if (!isLoading) {
-      timerRef.current = setTimeout(() => {
-        const nextCount = count + adPageSize;
-        if (count < exoAdsArr.length) {
-          setcount(nextCount);
-          window.AdProvider.push({ serve: {} });
-        } else {
-          timerRef.current && clearTimeout(timerRef.current);
-        }
-      }, 2000);
-      return () => timerRef.current && clearTimeout(timerRef.current);
+      window.AdProvider.push({ serve: {} });
+
+      // timerRef.current = setTimeout(() => {
+      //   const nextCount = count + adPageSize;
+      //   if (count < exoAdsArr.length) {
+      //     setcount(nextCount);
+      //     window.AdProvider.push({ serve: {} });
+      //   } else {
+      //     timerRef.current && clearTimeout(timerRef.current);
+      //   }
+      // }, 2000);
+      // return () => timerRef.current && clearTimeout(timerRef.current);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading, count]);

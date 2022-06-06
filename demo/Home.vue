@@ -4,7 +4,7 @@
     <title-bar :inApp="inApp" @Toast="showToast"></title-bar>
 
     <sterra-ad ad-pos="top" style="margin-top: 5px">
-      <yllix-ad ad-pos="top"></yllix-ad>
+      <direct-link-ad ad-pos="top"></direct-link-ad>
     </sterra-ad>
 
     <report
@@ -71,7 +71,7 @@
 
     <observable-wrapper @displayed="bottomAdVisible = true">
       <sterra-ad ad-pos="bottom" v-if="bottomAdVisible">
-        <yllix-ad ad-pos="bottom"></yllix-ad>
+        <direct-link-ad ad-pos="bottom"></direct-link-ad>
       </sterra-ad>
     </observable-wrapper>
 
@@ -111,6 +111,7 @@
     </ul>
 
     <!-- <live-ad @modelOpen='modelOpen' @openDeep='openMXPDeeplink'></live-ad> -->
+    <direct-link-ad ad-pos="right"></direct-link-ad>
   </div>
   <div v-else class="mdisk-home error">
     {{ errorMsg }}
@@ -123,7 +124,7 @@ import TitleBar from "@/components/disk/TitleBar.vue";
 import NewsFeedList from "@/components/disk/NewsFeedList.vue";
 import Report from "@/components/disk/Report.vue";
 import Toast from "@/components/disk/toast.vue";
-import YllixAd from "@/components/disk/YllixAd.vue";
+import DirectLinkAd from "@/components/disk/DirectLinkAd.vue";
 // import LiveAd from '@/components/disk/liveAd.vue'
 import SterraAd from "@/components/disk/SterraAd.vue";
 import ObservableWrapper from "@/components/disk/ObservableWrapper.vue";
@@ -140,7 +141,7 @@ export default {
     Report,
     Toast,
     ObservableWrapper,
-    YllixAd,
+    DirectLinkAd,
     // LiveAd,
     SterraAd,
     OptionBtnGroup,
