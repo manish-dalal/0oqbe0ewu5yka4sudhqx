@@ -2,7 +2,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import './FooterAds.css';
 import { config, iHostname } from '../../config';
 
-const adPageSize = 8;
+const adPageSize = 6;
+const loadCount = 1000;
 
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
@@ -231,7 +232,7 @@ export default function MdiskInfo({ isLoading }) {
   }, [isLoading]);
 
   useEffect(() => {
-    if (!isLoading) {
+    if (!isLoading && loadCount > count) {
       timerRef.current = setTimeout(() => {
         const nextCount = count + adPageSize;
         if (count < exoAdsArr.length) {
