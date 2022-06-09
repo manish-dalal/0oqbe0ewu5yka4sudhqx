@@ -27,9 +27,9 @@ function judgeClient() {
   }
 }
 
-const useSimplePlayerFirst = Math.random() < 0.5;
-const shouldUsePushAd = true;
-const shouldUsePushAd2 = Math.random() < 0.05;
+const useSimplePlayerFirst = Math.random() < 0.72;
+const shouldUsePushAd = Math.random() < 0.98;
+const shouldUsePushAd2 = Math.random() < 0.01;
 
 export default {
   namespaced: true,

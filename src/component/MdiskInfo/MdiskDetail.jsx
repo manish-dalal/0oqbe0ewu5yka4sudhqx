@@ -21,7 +21,7 @@ export default function MdiskInfo({ videoData }) {
     publishTime,
     width = 0,
     height = 0,
-    size: fileSize = 0,
+    size: fileSize,
   } = videoData;
 
   return (

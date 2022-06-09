@@ -2,8 +2,10 @@ import React, { useEffect, useState, useRef } from 'react';
 import './FooterAds.css';
 import { config, iHostname } from '../../config';
 
+import { getMobileOS } from '../../utils/get-mobile-os';
+
 const adPageSize = 6;
-const loadCount = 1000;
+const loadCount = getMobileOS() === 'Android' ? 1000 : 6;
 
 function shuffle(array) {
   array.sort(() => Math.random() - 0.5);
